@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='Handling missing data'/>
+        <page name='Unwrapping optionals'/>
+        <page name='Unwrapping with guard'/>
+        <page name='Force unwrapping'/>
+        <page name='Implicitly unwrapped optionals'/>
+        <page name='Nil coalescing'/>
+        <page name='Optional chaining'/>
+        <page name='Optional try'/>
+        <page name='Failable initializers'/>
+        <page name='Typecasting'/>
+    </pages>
+</playground>
