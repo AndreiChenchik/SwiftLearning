@@ -16,5 +16,13 @@
         <page name='Enumerations'/>
         <page name='Struct'/>
         <page name='Classes'/>
+        <page name='Properties'/>
+        <page name='Static properties and methods'/>
+        <page name='Access control'/>
+        <page name='Polymorphism and typecasting'/>
+        <page name='Closures'/>
+        <page name='Protocols'/>
+        <page name='Extensions'/>
+        <page name='Protocol extensions'/>
     </pages>
 </playground>
