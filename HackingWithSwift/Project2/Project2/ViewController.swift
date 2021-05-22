@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chart.bar.fill"), style: .plain, target: self, action: #selector(showScore))
         
         countries += ["estonia", "france", "germany", "italy", "ireland", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
         
@@ -44,7 +45,7 @@ class ViewController: UIViewController {
         button3.setImage(UIImage(named: countries[2]), for: .normal)
         
         let question = countries[correctAnswer].uppercased()
-        title = "Guess \"\(question)\", your score: \(score)"
+        title = "Guess the FLAG of \(question)"
     }
 
     func displayAlert(title: String, message: String, action: String) {
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
             score += 1
             
             if score == 10 {
-                displayAlert(title: "You won!", message: "Well done :)", action: "Start over")
+                displayAlert(title: "Well done!", message: "You scored 10 and won 🥳", action: "Start over")
                 score = 0
             } else {
                 askQuestion()
@@ -72,5 +73,12 @@ class ViewController: UIViewController {
         
 
     }
+    
+    @objc func showScore() {
+        let ac = UIAlertController(title: "Score board", message: "Your score is \(score)", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+        present(ac, animated: true)
+    }
+    
 }
 
