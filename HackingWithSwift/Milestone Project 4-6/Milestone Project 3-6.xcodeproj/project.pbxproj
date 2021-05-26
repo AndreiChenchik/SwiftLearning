@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38FF6E5F265E9C6700EDFC76 /* Project7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project7.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38FF6E5F265E9C6700EDFC76 /* Milestone Project 3-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Milestone Project 3-6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FF6E62265E9C6700EDFC76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FF6E64265E9C6700EDFC76 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		38FF6E66265E9C6700EDFC76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		38FF6E60265E9C6700EDFC76 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38FF6E5F265E9C6700EDFC76 /* Project7.app */,
+				38FF6E5F265E9C6700EDFC76 /* Milestone Project 3-6.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		38FF6E5E265E9C6700EDFC76 /* Project7 */ = {
+		38FF6E5E265E9C6700EDFC76 /* Milestone Project 3-6 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 38FF6E73265E9C6800EDFC76 /* Build configuration list for PBXNativeTarget "Project7" */;
+			buildConfigurationList = 38FF6E73265E9C6800EDFC76 /* Build configuration list for PBXNativeTarget "Milestone Project 3-6" */;
 			buildPhases = (
 				38FF6E5B265E9C6700EDFC76 /* Sources */,
 				38FF6E5C265E9C6700EDFC76 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = Project7;
+			name = "Milestone Project 3-6";
 			productName = Project7;
-			productReference = 38FF6E5F265E9C6700EDFC76 /* Project7.app */;
+			productReference = 38FF6E5F265E9C6700EDFC76 /* Milestone Project 3-6.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +101,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 38FF6E5A265E9C6700EDFC76 /* Build configuration list for PBXProject "Project7" */;
+			buildConfigurationList = 38FF6E5A265E9C6700EDFC76 /* Build configuration list for PBXProject "Milestone Project 3-6" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,7 +114,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				38FF6E5E265E9C6700EDFC76 /* Project7 */,
+				38FF6E5E265E9C6700EDFC76 /* Milestone Project 3-6 */,
 			);
 		};
 /* End PBXProject section */
@@ -293,7 +293,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.chenchik.ios.Project7;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.chenchik.ios.MilestoneProject3-6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.chenchik.ios.Project7;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.chenchik.ios.MilestoneProject3-6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,7 +322,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		38FF6E5A265E9C6700EDFC76 /* Build configuration list for PBXProject "Project7" */ = {
+		38FF6E5A265E9C6700EDFC76 /* Build configuration list for PBXProject "Milestone Project 3-6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				38FF6E71265E9C6800EDFC76 /* Debug */,
@@ -331,7 +331,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		38FF6E73265E9C6800EDFC76 /* Build configuration list for PBXNativeTarget "Project7" */ = {
+		38FF6E73265E9C6800EDFC76 /* Build configuration list for PBXNativeTarget "Milestone Project 3-6" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				38FF6E74265E9C6800EDFC76 /* Debug */,
