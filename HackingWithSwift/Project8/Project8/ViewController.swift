@@ -132,10 +132,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadLevel()
+        performSelector(inBackground: #selector(loadLevel), with: nil)
     }
 
-    func loadLevel() {
+    @objc func loadLevel() {
         var clueString = ""
         var solutionString = ""
         var letterBits = [String]()
@@ -161,14 +161,23 @@ class ViewController: UIViewController {
             }
         }
         
-        cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
-        answerLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        letterButtons.shuffle()
-        
-        if letterButtons.count == letterBits.count {
-            for i in 0..<letterButtons.count {
-                letterButtons[i].setTitle(letterBits[i], for: .normal)
+        DispatchQueue.main.async {
+            [weak self] in
+            guard let self = self else { return }
+            
+            self.cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
+            self.answerLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            self.letterButtons.shuffle()
+            
+            if self.letterButtons.count == letterBits.count {
+                for i in 0..<self.letterButtons.count {
+                    self.letterButtons[i].setTitle(letterBits[i], for: .normal)
+                }
+            }
+            
+            for button in self.letterButtons {
+                button.isHidden = false
             }
         }
     }
@@ -185,12 +194,12 @@ class ViewController: UIViewController {
     @objc func clearTapped(_ sender: UIButton) {
         currentAnswer.text = ""
         
-        deactivateButtons()
+        reactivateButtons()
         
         activatedButtons.removeAll()
     }
     
-    private func deactivateButtons() {
+    private func reactivateButtons() {
         for button in activatedButtons {
             button.isHidden = false
         }
@@ -213,11 +222,11 @@ class ViewController: UIViewController {
                 present(ac, animated: true)
             }
         } else {
-            let ac = UIAlertController(title: "You are wrong", message: "There is no such word as \(answerText) in our game", preferredStyle: .alert)
+            let ac = UIAlertController(title: "You are wrong", message: "There is no such word as \"\(answerText)\" in our game", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
             
-            deactivateButtons()
+            reactivateButtons()
             
             score -= 1
         }
@@ -232,10 +241,7 @@ class ViewController: UIViewController {
         rightWords = 0
         
         solutions.removeAll(keepingCapacity: true)
-        loadLevel()
-        for button in letterButtons {
-            button.isHidden = false
-        }
+        performSelector(inBackground: #selector(loadLevel), with: nil)
     }
 
 }
