@@ -9,16 +9,7 @@ import UIKit
 
 class ViewController: UITableViewController {
     var petitions = [Petition]()
-    var filteredPetitions: [Petition] {
-        if let filter = filter {
-            return petitions.filter { petition in
-                return petition.body.contains(filter) || petition.title.contains(filter)
-            }
-        }
-        
-        return petitions
-    }
-    var filter: String?
+    var filteredPetitions = [Petition]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,14 +51,22 @@ class ViewController: UITableViewController {
         ac.addTextField()
         ac.addAction(UIAlertAction(title: "Search", style: .default) { [weak ac, weak self] _ in
             if let userFilter = ac?.textFields?[0].text {
-                if userFilter != "" {
-                    self?.filter = userFilter
-                } else {
-                    self?.filter = nil
+                DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+                    if let petitions = self?.petitions {
+                        if userFilter != "" {
+                            self?.filteredPetitions = petitions.filter { petition in
+                                return petition.body.contains(userFilter) || petition.title.contains(userFilter)
+                            }
+                        } else {
+                            self?.filteredPetitions = petitions
+                        }
+                    }
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.tableView.reloadData()
+                    }
                 }
             }
-            
-            self?.tableView.reloadData()
         })
         present(ac, animated: true)
     }
@@ -82,6 +81,7 @@ class ViewController: UITableViewController {
         let decoder = JSONDecoder()
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
+            filteredPetitions = petitions
             tableView.reloadData()
         }
     }
