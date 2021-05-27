@@ -11,13 +11,7 @@ class ViewController: UITableViewController {
     var pictures = [String]()
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        title = "Storm Viewer"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
-        
+    @objc private func loadPictures() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -28,7 +22,16 @@ class ViewController: UITableViewController {
             }
         }
         pictures.sort()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        title = "Storm Viewer"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+        
+        performSelector(inBackground: #selector(loadPictures), with: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
