@@ -145,6 +145,7 @@ class ViewController: UIViewController {
         for word in words! {
             if word.count >= minWordLength && !word.contains("-") {
                 keyWord = word.uppercased()
+                break
             }
         }
         
