@@ -62,7 +62,7 @@ class ViewController: UITableViewController {
         let image = pictures[indexPath.row]
         
         cell.textLabel?.text = image.name
-        print(image.path)
+
         return cell
     }
 
@@ -73,19 +73,21 @@ class ViewController: UITableViewController {
         let image = pictures[indexPath.row]
         
         vc.imageName = image.name
-        vc.imagePath = image.path
+        vc.imagePath = getDocumentsDirectory().appendingPathComponent(image.fileName)
         
         navigationController?.pushViewController(vc, animated: true)
     }
-}
-
-
-extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
         return paths[0]
     }
+}
+
+
+extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -109,7 +111,7 @@ extension ViewController: UIImagePickerControllerDelegate & UINavigationControll
             guard let self = self else { return }
             
             if let name = renameAC?.textFields?[0].text {
-                let picture = Picture(name: name, path: imagePath.path)
+                let picture = Picture(name: name, fileName: imageName)
                 
                 let indexPath = IndexPath(row: self.pictures.count, section: 0)
                 self.pictures.append(picture)

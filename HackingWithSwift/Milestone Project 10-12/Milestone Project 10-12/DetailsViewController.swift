@@ -11,13 +11,14 @@ class DetailsViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     
     var imageName: String!
-    var imagePath: String!
+    var imagePath: URL!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = imageName
-        imageView.image = UIImage(contentsOfFile: imagePath)
+    
+        imageView.image = UIImage(contentsOfFile: imagePath.path)
         navigationItem.largeTitleDisplayMode = .never
     }
     

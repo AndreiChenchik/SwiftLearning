@@ -9,5 +9,5 @@ import Foundation
 
 struct Picture: Codable {
     var name: String
-    var path: String
+    var fileName: String
 }
