@@ -9,21 +9,33 @@ import UIKit
 
 class DetailViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
+    
+    var views = [String: Int]()
+    
     var selectedImage: String?
     
     var selectedImageNumber: Int?
     var totalImages: Int?
+    weak var parentController: ViewController?
+    var parentIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let selectedImageNumber = selectedImageNumber, let totalImages = totalImages else { fatalError("Didn't recieve expected parameters of image to activate the view") }
         
+        let defaults = UserDefaults.standard
+        views = defaults.object(forKey: "views") as? [String: Int] ?? [String: Int]()
+        
         title = "Picture \(selectedImageNumber) of \(totalImages)"
         navigationItem.largeTitleDisplayMode = .never
         
-        if let imageToLoad = selectedImage {
+        if let imageToLoad = selectedImage, let indexPath = parentIndexPath, let parent = parentController {
             imageView.image = UIImage(named: imageToLoad)
+            views[imageToLoad, default: 0] += 1
+            defaults.set(views, forKey: "views")
+            parent.views = views
+            parent.updateCell(at: indexPath)
         }
         // Do any additional setup after loading the view.
     }

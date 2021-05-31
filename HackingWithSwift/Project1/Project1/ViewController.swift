@@ -9,7 +9,8 @@ import UIKit
 
 class ViewController: UITableViewController {
     var pictures = [String]()
-    
+    var views = [String: Int]()
+    let defaults = UserDefaults.standard
     
     @objc private func loadPictures() {
         let fm = FileManager.default
@@ -27,6 +28,8 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        views = defaults.object(forKey: "views") as? [String: Int] ?? [String: Int]()
+        
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
@@ -41,7 +44,11 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Picture") else { fatalError("Can't find cell") }
         
-        cell.textLabel?.text = pictures[indexPath.row]
+        let picture = pictures[indexPath.row]
+        let views = views[picture, default: 0]
+        
+        cell.textLabel?.text = picture
+        cell.detailTextLabel?.text = "\(views) views"
         
         return cell
     }
@@ -53,6 +60,8 @@ class ViewController: UITableViewController {
             vc.selectedImage = pictures[selectedRow]
             vc.selectedImageNumber = selectedRow + 1
             vc.totalImages = pictures.count
+            vc.parentIndexPath = indexPath
+            vc.parentController = self
             
             navigationController?.pushViewController(vc, animated: true)
         }
@@ -64,6 +73,10 @@ class ViewController: UITableViewController {
         let vc = UIActivityViewController(activityItems: [appRecommendation], applicationActivities: nil)
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+    }
+    
+    func updateCell(at indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
 }
