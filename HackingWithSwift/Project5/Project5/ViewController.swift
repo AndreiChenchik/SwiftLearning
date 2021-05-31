@@ -11,10 +11,12 @@ class ViewController: UITableViewController {
     var allWords = [String]()
     var usedWords = [String]()
     
+    let defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(startGame))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(restartGame))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
         
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
@@ -26,13 +28,20 @@ class ViewController: UITableViewController {
         if allWords.isEmpty {
             allWords = ["silkworm"]
         }
-        
-        startGame()
+
+        usedWords = defaults.array(forKey: "usedWords") as? [String] ?? [String]()
+        title = defaults.object(forKey: "title") as? String ?? allWords.randomElement()
+        defaults.set(title, forKey: "title")
     }
 
-    @objc func startGame() {
+    
+    @objc func restartGame() {
         title = allWords.randomElement()
         usedWords.removeAll(keepingCapacity: true)
+        
+        defaults.set(title, forKey: "title")
+        defaults.set(usedWords, forKey: "usedWords")
+        
         tableView.reloadData()
     }
     
@@ -73,6 +82,8 @@ class ViewController: UITableViewController {
                     if isNotShort(word: lowerAnswer) {
                         if isNotStartWord(word: lowerAnswer) {
                             usedWords.insert(lowerAnswer, at: 0)
+                            defaults.set(usedWords, forKey: "usedWords")
+
                             let indexPath = IndexPath(row: 0, section: 0)
                             tableView.insertRows(at: [indexPath], with: .automatic)
                             
