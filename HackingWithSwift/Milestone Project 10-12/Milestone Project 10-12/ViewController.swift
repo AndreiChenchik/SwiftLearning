@@ -24,6 +24,11 @@ class ViewController: UITableViewController {
     
     @objc func addPictureTapped() {
         let imagePicker = UIImagePickerController()
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+        }
+        
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         
