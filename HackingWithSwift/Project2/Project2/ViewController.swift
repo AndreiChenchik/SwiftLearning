@@ -15,9 +15,17 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var attempt = 0
+    var maxAttempts = 10
+    var highScore = 0
+    let defaults = UserDefaults.standard
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        highScore = defaults.integer(forKey: "highScore")
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chart.bar.fill"), style: .plain, target: self, action: #selector(showScore))
         
         countries += ["estonia", "france", "germany", "italy", "ireland", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
@@ -57,25 +65,36 @@ class ViewController: UIViewController {
     @IBAction func buttonTapped(_ sender: UIButton) {
         let selectedCountry = countries[sender.tag].uppercased()
         
+        attempt += 1
+ 
+        
         if sender.tag == correctAnswer {
             score += 1
-            
-            if score == 10 {
-                displayAlert(title: "Well done!", message: "You scored 10 and won 🥳", action: "Start over")
-                score = 0
-            } else {
-                askQuestion()
-            }
         } else {
             score -= 1
+        }
+        
+        if attempt == maxAttempts {
+            if score > highScore {
+                displayAlert(title: "Game ended", message: "You scored \(score) in \(attempt) attempts.\n And set a new high score! 🥳", action: "Start over")
+                highScore = score
+                defaults.set(highScore, forKey: "highScore")
+            } else {
+                displayAlert(title: "Game ended", message: "You scored \(score) in \(attempt) attempts 🥳\n Current high score is \(highScore)", action: "Start over")
+            }
+            score = 0
+            attempt = 0
+        } else if sender.tag != correctAnswer {
             displayAlert(title: "Wrong answer", message: "You tapped \(selectedCountry) 🙃", action: "Try again")
+        } else {
+            askQuestion()
         }
         
 
     }
     
     @objc func showScore() {
-        let ac = UIAlertController(title: "Score board", message: "Your score is \(score)", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Score board", message: "Your score is \(score).\nCurrent high score is \(highScore).", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
         present(ac, animated: true)
     }
