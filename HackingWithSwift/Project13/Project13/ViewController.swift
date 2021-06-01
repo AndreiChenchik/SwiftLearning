@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet var intensity: UISlider!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var filterButton: UIButton!
+    @IBOutlet var radius: UISlider!
     
     var currentImage: UIImage!
     var context: CIContext!
@@ -23,7 +25,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
         
         context = CIContext()
-        currentFilter = CIFilter(name: "CISepiaTone")
+        
+        let defaultFilter = "CISepiaTone"
+        
+        currentFilter = CIFilter(name: defaultFilter)
+        filterButton.setTitle(defaultFilter, for: .normal)
+
     }
 
     @objc func importPicture() {
@@ -53,7 +60,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         }
         
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(intensity.value * 200, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(radius.value * 300, forKey: kCIInputRadiusKey)
         }
         
         if inputKeys.contains(kCIInputScaleKey) {
@@ -97,6 +104,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
         
         currentFilter = CIFilter(name: actionTitle)
         
+        filterButton.setTitle(actionTitle, for: .normal)
+        
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         
@@ -105,8 +114,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate & UINavi
     
     
     @IBAction func save(_ sender: UIButton) {
-        guard let image = imageView.image else { return }
+        guard let image = imageView.image else {
+            noImageError()
+            return }
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    func noImageError() {
+        let errorAC = UIAlertController(title: "No image", message: "Sorry, there is no image to be saved", preferredStyle: .alert)
+        errorAC.addAction(UIAlertAction(title: "Ok", style: .default))
+        present(errorAC, animated: true)
     }
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
