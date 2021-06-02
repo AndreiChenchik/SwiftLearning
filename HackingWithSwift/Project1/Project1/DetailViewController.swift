@@ -22,7 +22,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        assert(selectedImage != nil, "No image selected!")
         guard let selectedImageNumber = selectedImageNumber, let totalImages = totalImages else { fatalError("Didn't recieve expected parameters of image to activate the view") }
+        
         
         let defaults = UserDefaults.standard
         views = defaults.object(forKey: "views") as? [String: Int] ?? [String: Int]()
