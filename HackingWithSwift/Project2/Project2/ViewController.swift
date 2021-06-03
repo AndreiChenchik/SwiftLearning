@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
     @IBOutlet var button1: UIButton!
@@ -42,6 +43,37 @@ class ViewController: UIViewController {
         button3.layer.borderColor = borderColor
         
         askQuestion()
+        
+        registerNotifications()
+    }
+    
+    func registerNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { [weak self]            granted, error in
+            if granted {
+                self?.setNotifications()
+            } else {
+                print("D'oh! No notification for that mister!")
+            }
+        }
+    }
+    
+    func setNotifications() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "It's time to play!"
+        content.body = "We miss you! It's been a week already :("
+        content.categoryIdentifier = "comeback"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 86400, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        center.add(request)
+        print("Notifications set!")
     }
     
     func askQuestion() {
