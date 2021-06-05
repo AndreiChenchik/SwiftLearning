@@ -1,0 +1,12 @@
+xxxxxxxxxxxxxxxx
+x         vs  sx
+xxxxxxxx  x x  x
+x         x x  x
+x xxxxxxxxx x  x
+x s         x  x
+xvxxxxxxxxxxx  x
+x   xxxxxx s   x
+x          s xxx
+x xxxxxxxxxxxxfx
+x              x
+xxxxxxxxxxxxxxxx
