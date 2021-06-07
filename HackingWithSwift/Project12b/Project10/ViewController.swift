@@ -5,19 +5,13 @@
 //  Created by Andrei Chenchik on 30/5/21.
 //
 
+import LocalAuthentication
 import UIKit
 
 class ViewController: UICollectionViewController {
     var people = [Person]()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let letBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
-        navigationItem.leftBarButtonItem = letBarButton
-
-        title = "Names to Faces"
-
+    fileprivate func loadPeople() {
         let defaults = UserDefaults.standard
 
         if let savedPeople = defaults.object(forKey: "people") as? Data {
@@ -30,6 +24,99 @@ class ViewController: UICollectionViewController {
             }
         }
 
+        collectionView.reloadData()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let letBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        navigationItem.leftBarButtonItem = letBarButton
+
+        title = "Names to Faces"
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(lockData), name: UIApplication.willResignActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(authenticateUser), name: UIApplication.didBecomeActiveNotification, object: nil)
+        authenticateUser()
+
+    }
+
+    @objc func authenticateUser() {
+        let context = LAContext()
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify yourself!"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, _ in
+                DispatchQueue.main.async {
+                    if success {
+                        self?.unlockScreen()
+                    } else {
+                        let ac = UIAlertController(title: "Authentication failed", message: "You could not be verified; please try again.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(ac, animated: true)
+                    }
+                }
+            }
+        } else {
+            if KeychainWrapper.standard.string(forKey: "Password") != nil {
+                checkPassword()
+            } else {
+                let ac = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometric authentication; Do you want to use a password instead?", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                ac.addAction(UIAlertAction(title: "Create password", style: .default, handler: createPassword))
+                present(ac, animated: true)
+            }
+        }
+    }
+
+    func checkPassword() {
+        guard let password = KeychainWrapper.standard.string(forKey: "Password") else { return }
+        let ac = UIAlertController(title: "Enter password", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Reveal", style: .default, handler: { [weak ac, weak self] _ in
+            guard let userPassword = ac?.textFields?[0].text else { return }
+
+            if userPassword == password {
+                self?.unlockScreen()
+            } else {
+                self?.wrongPassword()
+            }
+
+        }))
+        present(ac, animated: true)
+    }
+
+    func wrongPassword() {
+        let ac = UIAlertController(title: "Wrong password", message: "You could not be verified; please try again.", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "Try again...", style: .default, handler: { [weak self] _ in
+            self?.checkPassword()
+        }))
+        present(ac, animated: true)
+    }
+
+    func createPassword(_ action: UIAlertAction) {
+        let ac = UIAlertController(title: "Create password", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "Save", style: .default, handler: { [weak ac, weak self] _ in
+            guard let password = ac?.textFields?[0].text else { return }
+            guard !password.isEmpty else { return }
+            KeychainWrapper.standard.set(password, forKey: "Password")
+            self?.authenticateUser()
+        }))
+        present(ac, animated: true)
+    }
+
+    func unlockScreen() {
+        loadPeople()
+    }
+
+    @objc func lockData() {
+        people = [Person]()
+        collectionView.reloadData()
     }
 
     @objc func addNewPerson() {
