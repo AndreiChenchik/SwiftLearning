@@ -53,9 +53,11 @@ struct ContentView: View {
                 }
                 Section(header: Text("Amount per person")) {
                     Text("$\(totalPerPerson, specifier: "%.2f")")
+                        .foregroundColor(tipPercentage != 4 ? .black : .red)
                 }
                 Section(header: Text("Grand total")) {
                     Text("$\(grandTotal, specifier: "%.2f")")
+                        .foregroundColor(tipPercentage != 4 ? .black : .red)
                 }
             }
             .navigationBarTitle("WeSplit")
