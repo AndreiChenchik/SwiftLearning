@@ -68,6 +68,7 @@ struct ContentView: View {
                     .padding()
             }
             .navigationTitle("BetterRest")
+            .navigationTitle("Test")
         }
     }
     
