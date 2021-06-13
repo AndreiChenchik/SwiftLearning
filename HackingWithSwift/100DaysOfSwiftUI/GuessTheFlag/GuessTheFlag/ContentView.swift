@@ -33,6 +33,9 @@ struct ContentView: View {
     
     @State private var userScore = 0
     
+    @State private var flagRotation: [Double] = [0, 0, 0]
+    @State private var flagTransperency: [Double] = [1, 1, 1]
+    @State private var flagWrong = [false, false, false]
     
     var body: some View {
         ZStack {
@@ -52,7 +55,17 @@ struct ContentView: View {
                     Button(action: {
                         self.flagTapped(number)
                     }, label: {
-                        FlagImage(self.countries[number])
+                        if !self.flagWrong[number] {
+                            FlagImage(self.countries[number])
+                                .rotation3DEffect(.degrees(flagRotation[number]), axis: (x: 0, y: 1, z: 0))
+                                .opacity(self.flagTransperency[number])
+                        } else {
+                            FlagImage(self.countries[number])
+                                .rotation3DEffect(.degrees(flagRotation[number]), axis: (x: 0, y: 1, z: 0))
+                                .opacity(self.flagTransperency[number])
+                                .colorMultiply(.red)
+                        }
+                        
                     })
                 }
                 Spacer()
@@ -71,10 +84,24 @@ struct ContentView: View {
     
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
+            withAnimation {
+                for i in 0...2 {
+                    if i == number {
+                        self.flagRotation[i] += 360
+                    } else {
+                        self.flagTransperency[i] = 0.25
+                    }
+                }
+            }
+            
             scoreTitle = "Correct"
             scoreMessage = "Well done!"
             userScore += 1
         } else {
+            withAnimation {
+                self.flagWrong[number] = true
+            }
+            
             scoreTitle = "Wrong!"
             scoreMessage = "That's the flag of \(countries[number])"
             userScore -= 1
@@ -86,6 +113,9 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0..<3)
+        flagRotation = [0, 0, 0]
+        flagTransperency = [1, 1, 1]
+        flagWrong = [false, false, false]
     }
 }
 
