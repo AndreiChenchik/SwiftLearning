@@ -84,13 +84,18 @@ struct ContentView: View {
             }
             .listStyle(InsetListStyle())
             .navigationTitle("iExpense")
-            .navigationBarItems(
-                leading: EditButton(),
-                trailing: Button(action: {
-                    self.showingAddExpense = true
-                }, label: {
-                    Image(systemName: "plus")
-                }))
+            .toolbar(content: {
+                ToolbarItem(placement: ToolbarItemPlacement.navigationBarLeading) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: {
+                        self.showingAddExpense = true
+                    }, label: {
+                        Image(systemName: "plus")
+                    })
+                }
+            })
             .sheet(isPresented: $showingAddExpense, content: {
                 AddView(expenses: self.expences)
             })
