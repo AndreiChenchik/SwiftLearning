@@ -37,6 +37,7 @@ struct SettingsView: View {
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                .id(numberOfQuestionsSelection)
             }
 
             Section(header: Text("Ready to start?")) {

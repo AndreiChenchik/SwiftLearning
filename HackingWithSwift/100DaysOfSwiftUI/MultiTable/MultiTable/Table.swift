@@ -48,7 +48,7 @@ class Table: ObservableObject {
         questions.shuffle()
         
         if let questionsLimit = numberOfQuestions {
-            questions = Array(questions.prefix(questionsLimit - 1))
+            questions = Array(questions.prefix(questionsLimit))
         }
     }
 }
