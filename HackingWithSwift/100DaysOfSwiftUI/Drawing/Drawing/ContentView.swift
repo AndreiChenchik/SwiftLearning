@@ -176,6 +176,63 @@ struct Checkerboard: Shape {
     }
 }
 
+struct Arrow: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        path.move(to: CGPoint(x: rect.midX, y: 0))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.midX))
+        path.addLine(to: CGPoint(x: rect.maxX * 0.7, y: rect.midX))
+        path.addLine(to: CGPoint(x: rect.maxX * 0.7, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.maxX * 0.3, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.maxX * 0.3, y: rect.midX))
+        path.addLine(to: CGPoint(x: 0, y: rect.midX))
+        path.addLine(to: CGPoint(x: rect.midX, y: 0))
+        
+        return path
+    }
+}
+
+
+
+struct ColorCyclingRectangle: View {
+    var amount = 0.0
+    var steps = 1000
+    
+    var animatableData: Double {
+        get { amount }
+        set { self.amount = newValue }
+    }
+    
+    var body: some View {
+        ZStack {
+            ForEach(0..<steps) { value in
+                Rectangle()
+                    .inset(by: CGFloat(value) / 10)
+                    .strokeBorder(LinearGradient(
+                                    gradient: Gradient(colors: [
+                                                        self.color(for: value, brightness: 1),
+                                                        self.color(for: value, brightness: 0.5)]
+                                    ),
+                                    startPoint: .top,
+                                    endPoint: .bottom),
+                                  lineWidth: 0.2)
+            }
+        }
+        .drawingGroup()
+    }
+    
+    func color(for value: Int, brightness: Double) -> Color {
+        var targetHue = Double(value) / Double(steps) + self.amount
+        
+        if targetHue > 1 {
+            targetHue -= 1
+        }
+        
+        return Color(hue: targetHue, saturation: 1, brightness: brightness)
+    }
+}
+
 struct Spirograph: Shape {
     var animatableData: CGFloat {
         get { amount }
@@ -244,57 +301,75 @@ struct ContentView: View {
     @State private var columns = 4
     
     @State private var innerRadius = 125.0
-        @State private var outerRadius = 75.0
-        @State private var distance = 25.0
-        @State private var amountSG: CGFloat = 1.0
-        @State private var hue = 0.6
+    @State private var outerRadius = 75.0
+    @State private var distance = 25.0
+    @State private var amountSG: CGFloat = 1.0
+    @State private var hue = 0.6
+    
+    @State private var arrowWidth: CGFloat = 10
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
                 VStack(spacing: 20) {
+                    ColorCyclingRectangle(amount: self.colorCycle)
+                        .frame(width: geometry.size.width, height: geometry.size.width)
+                    Slider(value: $colorCycle.animation(Animation.easeInOut(duration: 3)))
+                    Arrow()
+                        .stroke(Color.red, style: StrokeStyle(lineWidth: arrowWidth, lineCap: .round, lineJoin: .round))
+                        .frame(width: geometry.size.width, height: geometry.size.width)
+                        .onTapGesture {
+                            withAnimation {
+                                self.arrowWidth = CGFloat.random(in: 2...40)
+                            }
+                        }
+                    
                     Group {
                         Text("Inner radius: \(Int(innerRadius))")
                         Slider(value: $innerRadius, in: 10...150, step: 1)
                             .padding([.horizontal])
-
+                        
                         Text("Outer radius: \(Int(outerRadius))")
                         Slider(value: $outerRadius, in: 10...150, step: 1)
                             .padding([.horizontal])
-
+                        
                         Text("Distance: \(Int(distance))")
                         Slider(value: $distance, in: 1...150, step: 1)
                             .padding([.horizontal])
-
+                        
                         Text("Amount: \(amount, specifier: "%.2f")")
                         Slider(value: $amountSG.animation(Animation.easeInOut(duration: 3)))
                             .padding([.horizontal])
-
+                        
                         Text("Color")
                         Slider(value: $hue)
                             .padding(.horizontal)
                     }
                     
-                    Spirograph(innerRadius: Int(innerRadius), outerRadius: Int(outerRadius), distance: Int(distance), amount: amountSG)
-                        .stroke(Color(hue: hue, saturation: 1, brightness: 1), lineWidth: 1)
-                        .frame(width: geometry.size.width, height: geometry.size.width)
-                    
-                    Checkerboard(rows: rows, columns: columns)
-                        .frame(width: geometry.size.width, height: geometry.size.width)
-                        .onTapGesture {
-                            withAnimation(.linear(duration: 3)) {
-                                self.rows = Int.random(in: 4...8)
-                                self.columns = Int.random(in: 4...16)
+                    Group {
+                        
+                        Spirograph(innerRadius: Int(innerRadius), outerRadius: Int(outerRadius), distance: Int(distance), amount: amountSG)
+                            .stroke(Color(hue: hue, saturation: 1, brightness: 1), lineWidth: 1)
+                            .frame(width: geometry.size.width, height: geometry.size.width)
+                        
+                        Checkerboard(rows: rows, columns: columns)
+                            .frame(width: geometry.size.width, height: geometry.size.width)
+                            .onTapGesture {
+                                withAnimation(.linear(duration: 3)) {
+                                    self.rows = Int.random(in: 4...8)
+                                    self.columns = Int.random(in: 4...16)
+                                }
                             }
-                        }
-                    
-                    Trapezoid(insetAmount: insetAmount)
-                        .frame(width: geometry.size.width, height: geometry.size.width)
-                        .onTapGesture {
-                            withAnimation {
-                                self.insetAmount = CGFloat.random(in: geometry.size.width / 5...geometry.size.width / 2)
+                        
+                        Trapezoid(insetAmount: insetAmount)
+                            .frame(width: geometry.size.width, height: geometry.size.width)
+                            .onTapGesture {
+                                withAnimation {
+                                    self.insetAmount = CGFloat.random(in: geometry.size.width / 5...geometry.size.width / 2)
+                                }
                             }
-                        }
+                        
+                    }
                     Group {
                         Image("barcelona")
                             .resizable()
