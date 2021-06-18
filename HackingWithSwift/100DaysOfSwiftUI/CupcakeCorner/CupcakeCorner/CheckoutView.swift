@@ -23,7 +23,7 @@ struct CheckoutView: View {
                         .scaledToFit()
                         .frame(width: geo.size.width)
                     
-                    Text("Your total is $\(self.order.cost, specifier: "%.2f")")
+                    Text("Your total is $\(self.order.data.cost, specifier: "%.2f")")
                         .font(.title)
                     
                     Button("Place Order") {
@@ -40,7 +40,7 @@ struct CheckoutView: View {
     }
     
     func placeOrder() {
-        guard let encoded = try? JSONEncoder().encode(order) else {
+        guard let encoded = try? JSONEncoder().encode(order.data) else {
             fatalError("Order data can't be encoded")
         }
         
@@ -61,7 +61,7 @@ struct CheckoutView: View {
                 return
             }
             
-            if let decodedOrder = try? JSONDecoder().decode(Order.self, from: data) {
+            if let decodedOrder = try? JSONDecoder().decode(OrderInfo.self, from: data) {
                 let quantity = decodedOrder.quantity
                 let cakeType = Order.types[decodedOrder.type].lowercased()
                 
