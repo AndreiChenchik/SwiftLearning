@@ -12,10 +12,10 @@ struct UserCellView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(user.name)
+            Text(user.wrappedName)
                 .font(.headline)
             
-            Text(user.email)
+            Text(user.wrappedEmail)
         }
     }
 }

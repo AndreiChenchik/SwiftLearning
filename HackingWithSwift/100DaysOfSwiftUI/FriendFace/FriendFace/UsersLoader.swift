@@ -1,5 +1,5 @@
 //
-//  Users.swift
+//  UsersLoader.swift
 //  FriendFace
 //
 //  Created by Andrei Chenchik on 21/6/21.
@@ -22,41 +22,37 @@ enum UsersError: Error, LocalizedError {
 }
 
 
-class Users: ObservableObject {
+class UsersLoader: ObservableObject {
     @Published var data = [User]()
-    
-    var activeUsers: [User] { data.filter { $0.isActive } }
-    
-    func decodeData(from data: Data) throws {
-        let decoder = JSONDecoder()
-        let newData = try decoder.decode([User].self, from: data)
         
-        DispatchQueue.main.async {
-            self.data = newData
-        }
+    func decodeData(from data: Data) throws -> [jsonUser] {
+        let decoder = JSONDecoder()
+        let usersData = try decoder.decode([jsonUser].self, from: data)
+        return usersData
     }
     
     
-    func loadData(errorHandler: @escaping (Error) -> Void) {
+    func loadData(completionHandler: @escaping ([jsonUser]?, Error?) -> Void) {
         let url = URL(string: "https://www.hackingwithswift.com/samples/friendface.json")!
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                errorHandler(error)
+                completionHandler(nil, error)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                errorHandler(UsersError.wrongResponseOnLoad)
+                completionHandler(nil, UsersError.wrongResponseOnLoad)
                 return
             }
             
             if let data = data {
                 do {
-                    try self.decodeData(from: data)
+                    let usersData = try self.decodeData(from: data)
+                    completionHandler(usersData, nil)
                 } catch {
-                    errorHandler(error)
+                    completionHandler(nil, error)
                 }
             }
         }.resume()

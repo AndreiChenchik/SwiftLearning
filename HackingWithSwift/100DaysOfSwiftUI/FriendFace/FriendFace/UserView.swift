@@ -8,55 +8,46 @@
 import SwiftUI
 
 struct UserView: View {
-    let users: Users
-    let user: User
+    @Environment(\.managedObjectContext) var moc
     
-    var friends: [User] {
-        var friends = [User]()
-        
-        for friend in user.friends {
-            if let friend = users.activeUsers.first(where: {$0.id == friend.id}) {
-                friends.append(friend)
-            }
-        }
-        
-        return friends
-    }
+    @FetchRequest(entity: User.entity(), sortDescriptors: []) var users: FetchedResults<User>
+    
+    let user: User
     
     var body: some View {
         List {
             Section {
                 VStack(alignment: .leading) {
                     Text("\(user.age) years old")
-                    Text("Working at \(user.company)")
+                    Text("Working at \(user.wrappedCompany)")
                     Text("Registration date: \(user.formattedRegisteredDate)")
                     
                     Text("Contact information")
                         .padding(.top)
                         .font(.title)
-                    Text(user.email)
-                    Text(user.address)
+                    Text(user.wrappedEmail)
+                    Text(user.wrappedAddress)
                     
                     Text("About")
                         .padding(.top)
                         .font(.title)
-                    Text(user.about)
-                    Text("Tags: \(user.formattedTags)")
+                    Text(user.wrappedAbout)
+                    Text("Tags: \(user.wrappedTags)")
                     
                     Text("Friends")
                         .padding(.top)
                         .font(.title)
                 }
             }
-            ForEach(friends) { user in
+            ForEach(user.friendsArray, id: \.self) { user in
                 NavigationLink(
-                    destination: UserView(users: users, user: user),
+                    destination: UserView(user: user),
                     label: {
                         UserCellView(user: user)
                     })
             }
         }
-        .navigationTitle(user.name)
+        .navigationTitle(user.wrappedName)
     }
 }
 

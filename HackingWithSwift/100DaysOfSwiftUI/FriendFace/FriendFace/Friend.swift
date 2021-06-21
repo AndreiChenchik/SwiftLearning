@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Friend: Codable, Identifiable {
+struct jsonFriend: Codable, Identifiable {
     let id: String
     let name: String
 }
