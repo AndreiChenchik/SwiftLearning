@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+struct ToolbarButtonView: View {
+    @Binding var showingMissionDatesNotCrew: Bool
+    
+    var body: some View {
+        Text("ASDASD")
+    }
+}
+
 
 struct ContentView: View {
     let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
@@ -33,12 +41,26 @@ struct ContentView: View {
             }
             .navigationTitle("Moonshot")
             .toolbar(content: {
-                ToolbarItem {
-                    Button(action: {
-                        self.showingMissionDatesNotCrew.toggle()
-                    }, label: {
-                        self.showingMissionDatesNotCrew ? Image(systemName: "person.3.fill") : Image(systemName: "calendar")
-                    })
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    HStack {
+                        Text("")
+                            .accessibilityHidden(true)
+                        
+                        Button(action: {
+                            self.showingMissionDatesNotCrew.toggle()
+                        }, label: {
+                            if self.showingMissionDatesNotCrew {
+                                Image(systemName: "person.3.fill")
+                                    .accessibilityElement()
+                                    .accessibility(label: Text("show missions crew in list"))
+                            } else {
+                                Image(systemName: "calendar")
+                                    .accessibilityElement()
+                                    .accessibility(label: Text("show missions dates in list"))
+                            }
+                        })
+                        
+                    }
                 }
             })
         }

@@ -41,6 +41,7 @@ struct MissionView: View {
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.7)
                         .padding(.top)
+                        .accessibility(label: Text("Logo of \(self.mission.displayName)"))
                     
                     Text(self.mission.displayName)
                         .font(.largeTitle)
