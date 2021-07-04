@@ -31,6 +31,15 @@ struct EditView: View {
                     Section(header: Text("Name")) {
                         TextField("Caption this picture", text: $imageName)
                     }
+                    
+                    if picture.coordinatesLatitude != 0 && picture.coordinatesLongitude != 0 {
+                        Section(header: Text("Location")) {
+                            MapView(latitude: picture.coordinatesLatitude, longitude: picture.coordinatesLongitude)
+                                .frame(height: 200)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                    }
+                    
                 }
                 VStack {
                     Spacer()
@@ -51,7 +60,7 @@ struct EditView: View {
                 }
             }
             
-            .navigationTitle("Add information")
+            .navigationTitle("Memory")
         }
         
         

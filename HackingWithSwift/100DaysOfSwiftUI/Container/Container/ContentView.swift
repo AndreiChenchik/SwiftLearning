@@ -24,10 +24,13 @@ struct ContentView: View {
         return sortedSources
         
     }
+    
     @State private var selectedImageSource: UIImagePickerController.SourceType?
     
     @State private var showingEditScreen = false
     @State private var selectedPicture: Picture?
+    
+    let locationFetcher = LocationFetcher()
     
     var body: some View {
         NavigationView {
@@ -61,6 +64,7 @@ struct ContentView: View {
                             showingSourceSelecor = true
                         } else {
                             showingImagePicker = true
+                            locationFetcher.start()
                         }
                     }, label: {
                         HStack {
@@ -92,6 +96,7 @@ struct ContentView: View {
                     buttons.append(.default(Text(source.0), action: {
                         selectedImageSource = source.1
                         showingImagePicker = true
+                        locationFetcher.start()
                     }))
                 }
                 buttons.append(.cancel())
@@ -107,8 +112,12 @@ struct ContentView: View {
     func processImage() {
         guard let inputImage = inputImage else { return }
         
+        let location = locationFetcher.lastKnownLocation
+        
         let newPicture = Picture(context: moc)
         newPicture.addPicture(inputImage)
+        newPicture.coordinatesLongitude = location?.longitude ?? 0
+        newPicture.coordinatesLatitude = location?.latitude ?? 0
         
         selectedPicture = newPicture
     }

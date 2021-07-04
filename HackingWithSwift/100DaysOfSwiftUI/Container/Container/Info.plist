@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need an access to your location to remember where the photo was taken.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We need an access to your camera to do get photos from camera!</string>
 	<key>CFBundleDevelopmentRegion</key>

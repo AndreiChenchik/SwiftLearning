@@ -18,6 +18,8 @@ extension Picture {
     
     @NSManaged public var fileName: String?
     @NSManaged public var title: String?
+    @NSManaged public var coordinatesLatitude: Double
+    @NSManaged public var coordinatesLongitude: Double
     
     var wrappedTitle: String {
         get { title ?? "Untitled" }

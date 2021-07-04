@@ -19,6 +19,8 @@
 		3880E9AA2685F702006A054D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880E9A92685F702006A054D /* ImagePicker.swift */; };
 		3880E9AC268F6C61006A054D /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880E9AB268F6C61006A054D /* EditView.swift */; };
 		3880E9AE2690B10E006A054D /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880E9AD2690B10E006A054D /* FileManager.swift */; };
+		3880E9B026922199006A054D /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880E9AF26922199006A054D /* LocationFetcher.swift */; };
+		3880E9B226922529006A054D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880E9B126922529006A054D /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		3880E9A92685F702006A054D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3880E9AB268F6C61006A054D /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		3880E9AD2690B10E006A054D /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		3880E9AF26922199006A054D /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		3880E9B126922529006A054D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,9 @@
 				3860C2D72684B0AE006672E7 /* AppDelegate.swift */,
 				3860C2D92684B0AE006672E7 /* SceneDelegate.swift */,
 				3860C2DB2684B0AE006672E7 /* ContentView.swift */,
+				3880E9AF26922199006A054D /* LocationFetcher.swift */,
 				3880E9AB268F6C61006A054D /* EditView.swift */,
+				3880E9B126922529006A054D /* MapView.swift */,
 				3860C2E02684B0B0006672E7 /* Assets.xcassets */,
 				3860C2E52684B0B0006672E7 /* LaunchScreen.storyboard */,
 				3860C2E82684B0B0006672E7 /* Info.plist */,
@@ -165,6 +171,8 @@
 			files = (
 				3880E9A82684C460006A054D /* Picture+CoreDataProperties.swift in Sources */,
 				3860C2D82684B0AE006672E7 /* AppDelegate.swift in Sources */,
+				3880E9B026922199006A054D /* LocationFetcher.swift in Sources */,
+				3880E9B226922529006A054D /* MapView.swift in Sources */,
 				3880E9AC268F6C61006A054D /* EditView.swift in Sources */,
 				3860C2DF2684B0AE006672E7 /* Container.xcdatamodeld in Sources */,
 				3880E9AA2685F702006A054D /* ImagePicker.swift in Sources */,
