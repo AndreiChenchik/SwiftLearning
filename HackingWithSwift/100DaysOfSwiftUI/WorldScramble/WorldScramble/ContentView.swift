@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var usedWords = [String]()
+    @State private var usedWords = [String](repeating: "testTest", count: 25)
     @State private var rootWord = ""
     @State private var newWord = ""
     
@@ -27,33 +27,41 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack {
-                TextField("Enter your word", text: $newWord, onCommit: addNewWord)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .autocapitalization(.none)
-                    .padding()
-                
-                List(usedWords, id: \.self) { word in
-                    HStack {
-                        Image(systemName: "\(word.count).circle")
-                        Text(word)
+        GeometryReader { fullView in
+            NavigationView {
+                VStack {
+                    TextField("Enter your word", text: $newWord, onCommit: addNewWord)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .padding()
+                    
+                    List {
+                        ForEach(0..<usedWords.count, id: \.self) { index in
+                            GeometryReader { wordView in
+                                HStack {
+                                    Image(systemName: "\(usedWords[index].count).circle")
+                                    Text(usedWords[index])
+                                }
+                                .offset(x: wordView.frame(in: .global).midY > fullView.frame(in: .global).midY * 1.2 ? 1.5 * (wordView.frame(in: .global).midY - fullView.frame(in: .global).midY * 1.2): 0)
+                                .accessibilityElement(children: .ignore)
+                                .accessibility(label: Text("\(usedWords[index]), \(usedWords[index].count) letters"))
+                            }
+                            .frame(height: 20)
+                        }
                     }
-                    .accessibilityElement(children: .ignore)
-                    .accessibility(label: Text("\(word), \(word.count) letters"))
+                    .listStyle(PlainListStyle())
+                    Text("User score: \(usedWords.count) words of \(userScore) chars")
                 }
-                .listStyle(PlainListStyle())
-                Text("User score: \(usedWords.count) words of \(userScore) chars")
-            }
-            .navigationTitle(rootWord)
-            .navigationBarItems(leading: Button(action: {
-                self.startGame()
-            }) {
-                Image(systemName: "arrow.clockwise")
-            })
-            .onAppear(perform: startGame)
-            .alert(isPresented: $showingError) {
-                Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                .navigationTitle(rootWord)
+                .navigationBarItems(leading: Button(action: {
+                    self.startGame()
+                }) {
+                    Image(systemName: "arrow.clockwise")
+                })
+                .onAppear(perform: startGame)
+                .alert(isPresented: $showingError) {
+                    Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
+                }
             }
         }
     }
