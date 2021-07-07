@@ -33,15 +33,25 @@ struct MissionView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader { missionView in
             ScrollView(.vertical) {
                 VStack {
-                    Image(self.mission.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: geometry.size.width * 0.7)
-                        .padding(.top)
-                        .accessibility(label: Text("Logo of \(self.mission.displayName)"))
+                    GeometryReader { logoImage in
+                        Image(self.mission.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:
+                                    max(missionView.size.width * 0.7 * 0.4,
+                                        min(missionView.size.width * 0.7,
+                                            logoImage.frame(in: .global).maxY - missionView.frame(in: .global).minY)),
+                                   height: missionView.size.width * 0.7,
+                                   alignment: .bottom
+                            )
+                            .position(x: logoImage.size.width / 2, y: logoImage.size.height / 2)
+                            .padding(.top)
+                            .accessibility(label: Text("Logo of \(self.mission.displayName)"))
+                    }
+                    .frame(height: missionView.size.width * 0.7)
                     
                     Text(self.mission.displayName)
                         .font(.largeTitle)
@@ -74,11 +84,12 @@ struct MissionView: View {
                                 .padding(.horizontal)
                             })
                             .buttonStyle(PlainButtonStyle())
-
+                        
                     }
                     
                     Spacer(minLength: 25)
                 }
+                
             }
         }
         .navigationTitle(Text(mission.displayName))
