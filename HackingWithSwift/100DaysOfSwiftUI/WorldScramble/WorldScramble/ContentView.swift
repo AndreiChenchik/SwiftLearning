@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var usedWords = [String](repeating: "testTest", count: 25)
+    @State private var usedWords = [String]()
     @State private var rootWord = ""
     @State private var newWord = ""
     
@@ -40,6 +40,7 @@ struct ContentView: View {
                             GeometryReader { wordView in
                                 HStack {
                                     Image(systemName: "\(usedWords[index].count).circle")
+                                        .foregroundColor(Color(hue: Double(wordView.frame(in: .global).maxY / fullView.frame(in: .global).maxY), saturation: 1, brightness: 1))
                                     Text(usedWords[index])
                                 }
                                 .offset(x: wordView.frame(in: .global).midY > fullView.frame(in: .global).midY * 1.2 ? 1.5 * (wordView.frame(in: .global).midY - fullView.frame(in: .global).midY * 1.2): 0)
