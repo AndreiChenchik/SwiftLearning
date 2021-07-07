@@ -1,0 +1,383 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		384F877E2695C56C000C621B /* Roll+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F877C2695C56C000C621B /* Roll+CoreDataClass.swift */; };
+		384F877F2695C56C000C621B /* Roll+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F877D2695C56C000C621B /* Roll+CoreDataProperties.swift */; };
+		38C5BE9F2695B34700FBBEF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C5BE9E2695B34700FBBEF9 /* AppDelegate.swift */; };
+		38C5BEA12695B34700FBBEF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C5BEA02695B34700FBBEF9 /* SceneDelegate.swift */; };
+		38C5BEA32695B34700FBBEF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C5BEA22695B34700FBBEF9 /* ContentView.swift */; };
+		38C5BEA62695B34700FBBEF9 /* DiceRoller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38C5BEA42695B34700FBBEF9 /* DiceRoller.xcdatamodeld */; };
+		38C5BEA82695B34700FBBEF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C5BEA72695B34700FBBEF9 /* Assets.xcassets */; };
+		38C5BEAB2695B34700FBBEF9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38C5BEAA2695B34700FBBEF9 /* Preview Assets.xcassets */; };
+		38C5BEAE2695B34700FBBEF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38C5BEAC2695B34700FBBEF9 /* LaunchScreen.storyboard */; };
+		38C5BEB62695B36A00FBBEF9 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C5BEB52695B36A00FBBEF9 /* HistoryView.swift */; };
+		38C5BEB82695B37400FBBEF9 /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C5BEB72695B37400FBBEF9 /* RollView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		384F877C2695C56C000C621B /* Roll+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Roll+CoreDataClass.swift"; sourceTree = "<group>"; };
+		384F877D2695C56C000C621B /* Roll+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Roll+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		38C5BE9B2695B34700FBBEF9 /* DiceRoller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceRoller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C5BE9E2695B34700FBBEF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38C5BEA02695B34700FBBEF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		38C5BEA22695B34700FBBEF9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		38C5BEA52695B34700FBBEF9 /* DiceRoller.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DiceRoller.xcdatamodel; sourceTree = "<group>"; };
+		38C5BEA72695B34700FBBEF9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38C5BEAA2695B34700FBBEF9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		38C5BEAD2695B34700FBBEF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		38C5BEAF2695B34700FBBEF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C5BEB52695B36A00FBBEF9 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		38C5BEB72695B37400FBBEF9 /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38C5BE982695B34700FBBEF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		38C5BE922695B34700FBBEF9 = {
+			isa = PBXGroup;
+			children = (
+				38C5BE9D2695B34700FBBEF9 /* DiceRoller */,
+				38C5BE9C2695B34700FBBEF9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		38C5BE9C2695B34700FBBEF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38C5BE9B2695B34700FBBEF9 /* DiceRoller.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38C5BE9D2695B34700FBBEF9 /* DiceRoller */ = {
+			isa = PBXGroup;
+			children = (
+				384F877C2695C56C000C621B /* Roll+CoreDataClass.swift */,
+				384F877D2695C56C000C621B /* Roll+CoreDataProperties.swift */,
+				38C5BE9E2695B34700FBBEF9 /* AppDelegate.swift */,
+				38C5BEA02695B34700FBBEF9 /* SceneDelegate.swift */,
+				38C5BEA22695B34700FBBEF9 /* ContentView.swift */,
+				38C5BEB52695B36A00FBBEF9 /* HistoryView.swift */,
+				38C5BEB72695B37400FBBEF9 /* RollView.swift */,
+				38C5BEA72695B34700FBBEF9 /* Assets.xcassets */,
+				38C5BEAC2695B34700FBBEF9 /* LaunchScreen.storyboard */,
+				38C5BEAF2695B34700FBBEF9 /* Info.plist */,
+				38C5BEA42695B34700FBBEF9 /* DiceRoller.xcdatamodeld */,
+				38C5BEA92695B34700FBBEF9 /* Preview Content */,
+			);
+			path = DiceRoller;
+			sourceTree = "<group>";
+		};
+		38C5BEA92695B34700FBBEF9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				38C5BEAA2695B34700FBBEF9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		38C5BE9A2695B34700FBBEF9 /* DiceRoller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38C5BEB22695B34700FBBEF9 /* Build configuration list for PBXNativeTarget "DiceRoller" */;
+			buildPhases = (
+				38C5BE972695B34700FBBEF9 /* Sources */,
+				38C5BE982695B34700FBBEF9 /* Frameworks */,
+				38C5BE992695B34700FBBEF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DiceRoller;
+			productName = DiceRoller;
+			productReference = 38C5BE9B2695B34700FBBEF9 /* DiceRoller.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		38C5BE932695B34700FBBEF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					38C5BE9A2695B34700FBBEF9 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 38C5BE962695B34700FBBEF9 /* Build configuration list for PBXProject "DiceRoller" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 38C5BE922695B34700FBBEF9;
+			productRefGroup = 38C5BE9C2695B34700FBBEF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				38C5BE9A2695B34700FBBEF9 /* DiceRoller */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		38C5BE992695B34700FBBEF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C5BEAE2695B34700FBBEF9 /* LaunchScreen.storyboard in Resources */,
+				38C5BEAB2695B34700FBBEF9 /* Preview Assets.xcassets in Resources */,
+				38C5BEA82695B34700FBBEF9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		38C5BE972695B34700FBBEF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C5BEA62695B34700FBBEF9 /* DiceRoller.xcdatamodeld in Sources */,
+				38C5BE9F2695B34700FBBEF9 /* AppDelegate.swift in Sources */,
+				38C5BEB62695B36A00FBBEF9 /* HistoryView.swift in Sources */,
+				38C5BEB82695B37400FBBEF9 /* RollView.swift in Sources */,
+				384F877F2695C56C000C621B /* Roll+CoreDataProperties.swift in Sources */,
+				384F877E2695C56C000C621B /* Roll+CoreDataClass.swift in Sources */,
+				38C5BEA12695B34700FBBEF9 /* SceneDelegate.swift in Sources */,
+				38C5BEA32695B34700FBBEF9 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		38C5BEAC2695B34700FBBEF9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38C5BEAD2695B34700FBBEF9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		38C5BEB02695B34700FBBEF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		38C5BEB12695B34700FBBEF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38C5BEB32695B34700FBBEF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DiceRoller/Preview Content\"";
+				DEVELOPMENT_TEAM = UM3QPHF8E3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DiceRoller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.chenchik.ios.DiceRoller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		38C5BEB42695B34700FBBEF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DiceRoller/Preview Content\"";
+				DEVELOPMENT_TEAM = UM3QPHF8E3;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DiceRoller/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.chenchik.ios.DiceRoller;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		38C5BE962695B34700FBBEF9 /* Build configuration list for PBXProject "DiceRoller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38C5BEB02695B34700FBBEF9 /* Debug */,
+				38C5BEB12695B34700FBBEF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38C5BEB22695B34700FBBEF9 /* Build configuration list for PBXNativeTarget "DiceRoller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38C5BEB32695B34700FBBEF9 /* Debug */,
+				38C5BEB42695B34700FBBEF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		38C5BEA42695B34700FBBEF9 /* DiceRoller.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				38C5BEA52695B34700FBBEF9 /* DiceRoller.xcdatamodel */,
+			);
+			currentVersion = 38C5BEA52695B34700FBBEF9 /* DiceRoller.xcdatamodel */;
+			path = DiceRoller.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 38C5BE932695B34700FBBEF9 /* Project object */;
+}
