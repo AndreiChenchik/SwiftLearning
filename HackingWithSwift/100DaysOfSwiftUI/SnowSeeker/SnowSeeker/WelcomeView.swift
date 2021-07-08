@@ -13,7 +13,7 @@ struct WelcomeView: View {
             Text("Welcome to SnowSeeker!")
                 .font(.largeTitle)
             
-            Text("Please select a resort from the left-hand menu; swipe from the left edge to show it.")
+            Text("Please select a resort from the left-hand menu;\nswipe from the left edge to show it.")
                 .foregroundColor(.secondary)
         }
     }
