@@ -10,6 +10,8 @@
 		38210D36269DFAF2005BE6A2 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210D35269DFAF2005BE6A2 /* EditItemView.swift */; };
 		38210D38269DFE45005BE6A2 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210D37269DFE45005BE6A2 /* ItemRowView.swift */; };
 		38210D3A269E0753005BE6A2 /* Binding-onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210D39269E0753005BE6A2 /* Binding-onChange.swift */; };
+		38210D3C269E0B66005BE6A2 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210D3B269E0B66005BE6A2 /* ProjectHeaderView.swift */; };
+		38210D3E269E0EE7005BE6A2 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38210D3D269E0EE7005BE6A2 /* Colors.xcassets */; };
 		38F7A2FC269DB94200E39BE1 /* UltimatePortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */; };
 		38F7A2FE269DB94200E39BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FD269DB94200E39BE1 /* ContentView.swift */; };
 		38F7A300269DB94300E39BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7A2FF269DB94300E39BE1 /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		38210D35269DFAF2005BE6A2 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		38210D37269DFE45005BE6A2 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		38210D39269E0753005BE6A2 /* Binding-onChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-onChange.swift"; sourceTree = "<group>"; };
+		38210D3B269E0B66005BE6A2 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
+		38210D3D269E0EE7005BE6A2 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		38F7A2F8269DB94200E39BE1 /* UltimatePortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimatePortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimatePortfolioApp.swift; sourceTree = "<group>"; };
 		38F7A2FD269DB94200E39BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				38F7A30E269DCD5D00E39BE1 /* UltimatePortfolio.entitlements */,
 				38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */,
 				38F7A2FD269DB94200E39BE1 /* ContentView.swift */,
+				38210D3B269E0B66005BE6A2 /* ProjectHeaderView.swift */,
 				38210D35269DFAF2005BE6A2 /* EditItemView.swift */,
 				38210D39269E0753005BE6A2 /* Binding-onChange.swift */,
 				38F7A313269DCED800E39BE1 /* HomeView.swift */,
@@ -88,6 +93,7 @@
 				38210D37269DFE45005BE6A2 /* ItemRowView.swift */,
 				38F7A30C269DC1CC00E39BE1 /* DataController.swift */,
 				38F7A309269DBCB600E39BE1 /* Main.xcdatamodeld */,
+				38210D3D269E0EE7005BE6A2 /* Colors.xcassets */,
 				38F7A2FF269DB94300E39BE1 /* Assets.xcassets */,
 				38F7A301269DB94300E39BE1 /* Preview Content */,
 			);
@@ -168,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38210D3E269E0EE7005BE6A2 /* Colors.xcassets in Resources */,
 				38F7A303269DB94300E39BE1 /* Preview Assets.xcassets in Resources */,
 				38F7A300269DB94300E39BE1 /* Assets.xcassets in Resources */,
 			);
@@ -181,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38F7A316269DCF3B00E39BE1 /* ProjectsView.swift in Sources */,
+				38210D3C269E0B66005BE6A2 /* ProjectHeaderView.swift in Sources */,
 				38F7A30B269DBCB600E39BE1 /* Main.xcdatamodeld in Sources */,
 				38F7A31A269DF25E00E39BE1 /* Project-CoreDataHelpers.swift in Sources */,
 				38F7A30D269DC1CC00E39BE1 /* DataController.swift in Sources */,
