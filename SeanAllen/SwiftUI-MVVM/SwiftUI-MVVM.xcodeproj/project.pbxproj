@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38F7A2D4269CDA7600E39BE1 /* AppetizerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2D3269CDA7600E39BE1 /* AppetizerListViewModel.swift */; };
 		ED24F619265C242D00DD76F9 /* SwiftUI_MVVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED24F618265C242D00DD76F9 /* SwiftUI_MVVMApp.swift */; };
 		ED24F61D265C242D00DD76F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED24F61C265C242D00DD76F9 /* Assets.xcassets */; };
 		ED24F620265C242D00DD76F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED24F61F265C242D00DD76F9 /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38F7A2D3269CDA7600E39BE1 /* AppetizerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListViewModel.swift; sourceTree = "<group>"; };
 		ED24F615265C242D00DD76F9 /* SwiftUI-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED24F618265C242D00DD76F9 /* SwiftUI_MVVMApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_MVVMApp.swift; sourceTree = "<group>"; };
 		ED24F61C265C242D00DD76F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38F7A2D2269CDA6400E39BE1 /* AppetizerListView */ = {
+			isa = PBXGroup;
+			children = (
+				ED24F627265C245F00DD76F9 /* AppetizerListView.swift */,
+				38F7A2D3269CDA7600E39BE1 /* AppetizerListViewModel.swift */,
+			);
+			path = AppetizerListView;
+			sourceTree = "<group>";
+		};
 		ED24F60C265C242D00DD76F9 = {
 			isa = PBXGroup;
 			children = (
@@ -107,7 +118,7 @@
 		ED24F639265C283F00DD76F9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ED24F627265C245F00DD76F9 /* AppetizerListView.swift */,
+				38F7A2D2269CDA6400E39BE1 /* AppetizerListView */,
 				ED24F635265C26C700DD76F9 /* AppetizerCell.swift */,
 				ED24F633265C261800DD76F9 /* LoadingView.swift */,
 			);
@@ -186,6 +197,7 @@
 				ED24F62E265C24DF00DD76F9 /* APError.swift in Sources */,
 				ED24F630265C257900DD76F9 /* AlertItem.swift in Sources */,
 				ED24F62C265C24B500DD76F9 /* NetworkManager.swift in Sources */,
+				38F7A2D4269CDA7600E39BE1 /* AppetizerListViewModel.swift in Sources */,
 				ED24F62A265C248500DD76F9 /* Appetizer.swift in Sources */,
 				ED24F619265C242D00DD76F9 /* SwiftUI_MVVMApp.swift in Sources */,
 				ED24F634265C261800DD76F9 /* LoadingView.swift in Sources */,
