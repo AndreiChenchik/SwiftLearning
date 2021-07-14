@@ -11,7 +11,7 @@ extension Project {
     static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
     
     var projectTitle: String {
-        title ?? ""
+        title ?? "New Project"
     }
 
     var projectDetail: String {
