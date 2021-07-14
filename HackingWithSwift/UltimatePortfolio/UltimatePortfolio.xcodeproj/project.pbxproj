@@ -19,6 +19,7 @@
 		387F06F1269F124900560A9C /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = 387F06F0269F124900560A9C /* Awards.json */; };
 		387F06F3269F12DF00560A9C /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F06F2269F12DF00560A9C /* Award.swift */; };
 		387F06F5269F137100560A9C /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F06F4269F137100560A9C /* AwardsView.swift */; };
+		387F06F7269F320F00560A9C /* Color-Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F06F6269F320F00560A9C /* Color-Additions.swift */; };
 		38F7A2FC269DB94200E39BE1 /* UltimatePortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */; };
 		38F7A2FE269DB94200E39BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FD269DB94200E39BE1 /* ContentView.swift */; };
 		38F7A300269DB94300E39BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7A2FF269DB94300E39BE1 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		387F06F0269F124900560A9C /* Awards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Awards.json; sourceTree = "<group>"; };
 		387F06F2269F12DF00560A9C /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		387F06F4269F137100560A9C /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
+		387F06F6269F320F00560A9C /* Color-Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Additions.swift"; sourceTree = "<group>"; };
 		38F7A2F8269DB94200E39BE1 /* UltimatePortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimatePortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimatePortfolioApp.swift; sourceTree = "<group>"; };
 		38F7A2FD269DB94200E39BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				387F06F2269F12DF00560A9C /* Award.swift */,
 				38F7A317269DF17700E39BE1 /* Item-CoreDataHelpers.swift */,
 				38210D45269F07E3005BE6A2 /* SelectSomethingView.swift */,
+				387F06F6269F320F00560A9C /* Color-Additions.swift */,
 				38F7A319269DF25E00E39BE1 /* Project-CoreDataHelpers.swift */,
 				387F06F4269F137100560A9C /* AwardsView.swift */,
 				387F06EE269F0C2200560A9C /* Bundle-Decodable.swift */,
@@ -214,6 +217,7 @@
 				387F06F5269F137100560A9C /* AwardsView.swift in Sources */,
 				38F7A30B269DBCB600E39BE1 /* Main.xcdatamodeld in Sources */,
 				38F7A31A269DF25E00E39BE1 /* Project-CoreDataHelpers.swift in Sources */,
+				387F06F7269F320F00560A9C /* Color-Additions.swift in Sources */,
 				38210D42269E1003005BE6A2 /* EditProjectView.swift in Sources */,
 				38F7A30D269DC1CC00E39BE1 /* DataController.swift in Sources */,
 				38210D46269F07E3005BE6A2 /* SelectSomethingView.swift in Sources */,
