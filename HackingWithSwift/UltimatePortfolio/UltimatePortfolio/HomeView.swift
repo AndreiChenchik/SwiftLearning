@@ -22,7 +22,10 @@ struct HomeView: View {
     
     init() {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-        request.predicate = NSPredicate(format: "completed = false")
+        
+        let completedPredicate = NSPredicate(format: "completed = false")
+        let openPredicate = NSPredicate(format: "project.closed = false")
+        request.predicate = NSCompoundPredicate(type: .and, subpredicates: [completedPredicate, openPredicate])
         
         request.sortDescriptors = [
             NSSortDescriptor(keyPath: \Item.priority, ascending: false)
@@ -39,7 +42,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: projectRows) {
-                            ForEach(projects, content: ProjectSummaryView.init) 
+                            ForEach(projects, content: ProjectSummaryView.init)
                         }
                         .padding([.horizontal, .top])
                         .fixedSize(horizontal: false, vertical: true)
@@ -54,15 +57,18 @@ struct HomeView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
+#if DEBUG
+            .toolbar {
+                Button("Example Data") {
+                    dataController.deleteAll()
+                    try? dataController.createSampleData()
+                }
+            }
+#endif
         }
     }
     
 }
-
-//                Button("Add Data") {
-//                    dataController.deleteAll()
-//                    try? dataController.createSampleData()
-//                }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
