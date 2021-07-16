@@ -15,6 +15,8 @@
 		38210D42269E1003005BE6A2 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210D41269E1003005BE6A2 /* EditProjectView.swift */; };
 		38210D44269ED680005BE6A2 /* Sequence-Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210D43269ED680005BE6A2 /* Sequence-Sorting.swift */; };
 		38210D46269F07E3005BE6A2 /* SelectSomethingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38210D45269F07E3005BE6A2 /* SelectSomethingView.swift */; };
+		38468DC526A1CF100013EE75 /* DecodableDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 38468DC426A1CF100013EE75 /* DecodableDictionary.json */; };
+		38468DC726A1CF3C0013EE75 /* DecodableString.json in Resources */ = {isa = PBXBuildFile; fileRef = 38468DC626A1CF3C0013EE75 /* DecodableString.json */; };
 		387F06EF269F0C2200560A9C /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F06EE269F0C2200560A9C /* Bundle-Decodable.swift */; };
 		387F06F3269F12DF00560A9C /* Award.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F06F2269F12DF00560A9C /* Award.swift */; };
 		387F06F5269F137100560A9C /* AwardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F06F4269F137100560A9C /* AwardsView.swift */; };
@@ -27,9 +29,11 @@
 		387F070D26A0AAE600560A9C /* ItemListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F070C26A0AAE600560A9C /* ItemListRowView.swift */; };
 		387F071226A1777E00560A9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 387F071126A1777E00560A9C /* README.md */; };
 		387F072426A1954900560A9C /* UltimatePortfolioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F072326A1954900560A9C /* UltimatePortfolioTests.swift */; };
-		387F072B26A196BA00560A9C /* AssetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F072A26A196BA00560A9C /* AssetTest.swift */; };
+		387F072B26A196BA00560A9C /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F072A26A196BA00560A9C /* AssetTests.swift */; };
 		387F072D26A1A05300560A9C /* ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F072C26A1A05300560A9C /* ProjectTests.swift */; };
 		387F072F26A1A2E100560A9C /* AwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F072E26A1A2E100560A9C /* AwardTests.swift */; };
+		387F073126A1AB6E00560A9C /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F073026A1AB6E00560A9C /* DevelopmentTests.swift */; };
+		387F073326A1C84200560A9C /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F073226A1C84200560A9C /* ExtensionTests.swift */; };
 		38F7A2FC269DB94200E39BE1 /* UltimatePortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */; };
 		38F7A2FE269DB94200E39BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FD269DB94200E39BE1 /* ContentView.swift */; };
 		38F7A300269DB94300E39BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7A2FF269DB94300E39BE1 /* Assets.xcassets */; };
@@ -62,6 +66,8 @@
 		38210D41269E1003005BE6A2 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		38210D43269ED680005BE6A2 /* Sequence-Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence-Sorting.swift"; sourceTree = "<group>"; };
 		38210D45269F07E3005BE6A2 /* SelectSomethingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSomethingView.swift; sourceTree = "<group>"; };
+		38468DC426A1CF100013EE75 /* DecodableDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableDictionary.json; sourceTree = "<group>"; };
+		38468DC626A1CF3C0013EE75 /* DecodableString.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DecodableString.json; sourceTree = "<group>"; };
 		387F06EE269F0C2200560A9C /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		387F06F2269F12DF00560A9C /* Award.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Award.swift; sourceTree = "<group>"; };
 		387F06F4269F137100560A9C /* AwardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsView.swift; sourceTree = "<group>"; };
@@ -78,9 +84,11 @@
 		387F071126A1777E00560A9C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		387F072126A1954900560A9C /* UltimatePortfolioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltimatePortfolioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		387F072326A1954900560A9C /* UltimatePortfolioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimatePortfolioTests.swift; sourceTree = "<group>"; };
-		387F072A26A196BA00560A9C /* AssetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTest.swift; sourceTree = "<group>"; };
+		387F072A26A196BA00560A9C /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
 		387F072C26A1A05300560A9C /* ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTests.swift; sourceTree = "<group>"; };
 		387F072E26A1A2E100560A9C /* AwardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardTests.swift; sourceTree = "<group>"; };
+		387F073026A1AB6E00560A9C /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
+		387F073226A1C84200560A9C /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		38F7A2F8269DB94200E39BE1 /* UltimatePortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimatePortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimatePortfolioApp.swift; sourceTree = "<group>"; };
 		38F7A2FD269DB94200E39BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -203,12 +211,24 @@
 		387F072226A1954900560A9C /* UltimatePortfolioTests */ = {
 			isa = PBXGroup;
 			children = (
+				387F073426A1CECB00560A9C /* Fixtures */,
 				387F072326A1954900560A9C /* UltimatePortfolioTests.swift */,
+				387F073226A1C84200560A9C /* ExtensionTests.swift */,
+				387F073026A1AB6E00560A9C /* DevelopmentTests.swift */,
 				387F072C26A1A05300560A9C /* ProjectTests.swift */,
 				387F072E26A1A2E100560A9C /* AwardTests.swift */,
-				387F072A26A196BA00560A9C /* AssetTest.swift */,
+				387F072A26A196BA00560A9C /* AssetTests.swift */,
 			);
 			path = UltimatePortfolioTests;
+			sourceTree = "<group>";
+		};
+		387F073426A1CECB00560A9C /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				38468DC426A1CF100013EE75 /* DecodableDictionary.json */,
+				38468DC626A1CF3C0013EE75 /* DecodableString.json */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		38F7A2EF269DB94200E39BE1 = {
@@ -347,6 +367,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38468DC726A1CF3C0013EE75 /* DecodableString.json in Resources */,
+				38468DC526A1CF100013EE75 /* DecodableDictionary.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +405,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n    swiftlint autocorrect && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -392,10 +414,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				387F072B26A196BA00560A9C /* AssetTest.swift in Sources */,
+				387F072B26A196BA00560A9C /* AssetTests.swift in Sources */,
 				387F072F26A1A2E100560A9C /* AwardTests.swift in Sources */,
 				387F072426A1954900560A9C /* UltimatePortfolioTests.swift in Sources */,
+				387F073326A1C84200560A9C /* ExtensionTests.swift in Sources */,
 				387F072D26A1A05300560A9C /* ProjectTests.swift in Sources */,
+				387F073126A1AB6E00560A9C /* DevelopmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
