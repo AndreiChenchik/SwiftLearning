@@ -9,20 +9,20 @@ import SwiftUI
 
 struct ItemListRowView: View {
     @ObservedObject var item: Item
-    
+
     var body: some View {
         NavigationLink(destination: EditItemView(item: item)) {
             HStack(spacing: 20) {
                 Circle()
                     .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
                     .frame(width: 44, height: 44)
-                
+
                 VStack(alignment: .leading) {
                     Text(item.itemTitle)
                         .font(.title2)
                         .foregroundColor(.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    
+
                     if item.itemDetail.isEmpty == false {
                         Text(item.itemDetail)
                             .foregroundColor(.secondary)
