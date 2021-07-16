@@ -25,6 +25,7 @@
 		387F070926A0A48100560A9C /* ItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F070826A0A48100560A9C /* ItemListView.swift */; };
 		387F070B26A0A51E00560A9C /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F070A26A0A51E00560A9C /* ProjectSummaryView.swift */; };
 		387F070D26A0AAE600560A9C /* ItemListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387F070C26A0AAE600560A9C /* ItemListRowView.swift */; };
+		387F071226A1777E00560A9C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 387F071126A1777E00560A9C /* README.md */; };
 		38F7A2FC269DB94200E39BE1 /* UltimatePortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */; };
 		38F7A2FE269DB94200E39BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A2FD269DB94200E39BE1 /* ContentView.swift */; };
 		38F7A300269DB94300E39BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F7A2FF269DB94300E39BE1 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		387F070826A0A48100560A9C /* ItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListView.swift; sourceTree = "<group>"; };
 		387F070A26A0A51E00560A9C /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 		387F070C26A0AAE600560A9C /* ItemListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListRowView.swift; sourceTree = "<group>"; };
+		387F071126A1777E00560A9C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		38F7A2F8269DB94200E39BE1 /* UltimatePortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UltimatePortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7A2FB269DB94200E39BE1 /* UltimatePortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltimatePortfolioApp.swift; sourceTree = "<group>"; };
 		38F7A2FD269DB94200E39BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		38F7A2EF269DB94200E39BE1 = {
 			isa = PBXGroup;
 			children = (
+				387F071126A1777E00560A9C /* README.md */,
 				38F7A2FA269DB94200E39BE1 /* UltimatePortfolio */,
 				38F7A2F9269DB94200E39BE1 /* Products */,
 				38F7A310269DCD8400E39BE1 /* Frameworks */,
@@ -221,6 +224,7 @@
 				387F06FC26A07D2200560A9C /* Localizable.strings in Resources */,
 				38210D3E269E0EE7005BE6A2 /* Colors.xcassets in Resources */,
 				387F070426A07D7E00560A9C /* Awards.json in Resources */,
+				387F071226A1777E00560A9C /* README.md in Resources */,
 				38F7A303269DB94300E39BE1 /* Preview Assets.xcassets in Resources */,
 				38F7A300269DB94300E39BE1 /* Assets.xcassets in Resources */,
 				387F070026A07D6C00560A9C /* Localizable.stringsdict in Resources */,
