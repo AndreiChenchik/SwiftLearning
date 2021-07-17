@@ -48,11 +48,13 @@ class UltimatePortfolioUITests: XCTestCase {
         app.buttons["Open"].tap()
         XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
 
-        app.buttons["Add Project"].tap()
+        app.buttons["add"].tap()
         XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row(s) after adding a project.")
 
-        app.tables.children(matching: .other).element(boundBy: 0).buttons["NEW PROJECT"].tap()
+        app.buttons["NEW PROJECT"].tap()
         app.textFields["Project name"].tap()
+        XCTAssertTrue(app.keys["space"].waitForExistence(timeout: 1),
+                      "English keyboard should be fully present on the screen.")
 
         app.keys["space"].tap()
         app.keys["more"].tap()
