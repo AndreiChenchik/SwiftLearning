@@ -45,13 +45,13 @@ struct HomeView: View {
             }
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
-#if DEBUG
+            #if DEBUG
             .toolbar {
                 Button("Add Data") {
                     viewModel.addSampleData()
                 }
             }
-#endif
+            #endif
         }
     }
 
