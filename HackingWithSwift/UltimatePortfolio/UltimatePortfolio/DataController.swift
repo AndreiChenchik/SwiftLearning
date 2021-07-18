@@ -14,7 +14,7 @@ class DataController: ObservableObject {
     /// A CloudKit container used to store all our data.
     let container: NSPersistentCloudKitContainer
 
-    /// Initialises a data controller, either in memory (for temporary use such as testing and previewing),
+    /// Initializes a data controller, either in memory (for temporary use such as testing and previewing),
     /// or on permanent storage (for use in regular app runs.)
     ///
     /// Defaults to permanent storage.
@@ -104,6 +104,7 @@ class DataController: ObservableObject {
 
     func delete(_ object: NSManagedObject) {
         container.viewContext.delete(object)
+        save()
     }
 
     func deleteAll() {

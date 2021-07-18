@@ -11,7 +11,7 @@ import Foundation
 extension HomeView {
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
         private let projectsController: NSFetchedResultsController<Project>
-        private let itemsController:NSFetchedResultsController<Item>
+        private let itemsController: NSFetchedResultsController<Item>
 
         @Published var projects = [Project]()
         @Published var items = [Item]()

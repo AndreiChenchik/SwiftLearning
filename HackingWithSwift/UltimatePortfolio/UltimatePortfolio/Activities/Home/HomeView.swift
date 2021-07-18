@@ -27,11 +27,13 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: projectRows) {
-                            ForEach(viewModel.projects, content: ProjectSummaryView.init)
+                        if viewModel.projects.isEmpty == false {
+                            LazyHGrid(rows: projectRows) {
+                                ForEach(viewModel.projects, content: ProjectSummaryView.init)
+                            }
+                            .padding([.horizontal, .top])
+                            .fixedSize(horizontal: false, vertical: true)
                         }
-                        .padding([.horizontal, .top])
-                        .fixedSize(horizontal: false, vertical: true)
                     }
 
                     VStack(alignment: .leading) {
@@ -45,7 +47,7 @@ struct HomeView: View {
             .navigationTitle("Home")
 #if DEBUG
             .toolbar {
-                Button("Example Data") {
+                Button("Add Data") {
                     viewModel.addSampleData()
                 }
             }
