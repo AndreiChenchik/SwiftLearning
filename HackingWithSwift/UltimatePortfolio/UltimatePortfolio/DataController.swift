@@ -273,7 +273,7 @@ class DataController: ObservableObject {
 
     func appLaunched() {
         guard count(for: Project.fetchRequest()) >= 5 else { return }
-        
+
         let allScenes = UIApplication.shared.connectedScenes
         let scene = allScenes.first { $0.activationState == .foregroundActive }
 
@@ -281,4 +281,19 @@ class DataController: ObservableObject {
             SKStoreReviewController.requestReview(in: windowScene)
         }
     }
+
+    @discardableResult func addProject() -> Bool {
+        let canCreate = fullVersionUnlocked || count(for: Project.fetchRequest()) < 3
+
+        if canCreate {
+            let project = Project(context: container.viewContext)
+            project.closed = false
+            project.creationDate = Date()
+            save()
+            return true
+        } else {
+            return false
+        }
+    }
+
 }

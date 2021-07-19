@@ -108,6 +108,7 @@ struct ProjectsView: View {
         let viewModel = ViewModel(dataController: dataController, showClosedProjects: showClosedProjects)
         _viewModel = StateObject(wrappedValue: viewModel)
     }
+
 }
 
 struct ProjectsView_Previews: PreviewProvider {
