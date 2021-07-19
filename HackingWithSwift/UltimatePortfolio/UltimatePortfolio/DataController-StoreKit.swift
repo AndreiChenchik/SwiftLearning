@@ -1,6 +1,6 @@
 //
-//  DataController-StoreReviews.swift
-//  DataController-StoreReviews
+//  DataController-StoreKit.swift
+//  DataController-StoreKit
 //
 //  Created by Andrei Chenchik on 19/7/21.
 //
