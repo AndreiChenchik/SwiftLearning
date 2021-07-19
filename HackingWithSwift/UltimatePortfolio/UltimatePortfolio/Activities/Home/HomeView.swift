@@ -38,18 +38,16 @@ struct HomeView: View {
 
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
-                        if viewModel.projects.isEmpty == false {
-                            LazyHGrid(rows: projectRows) {
-                                ForEach(viewModel.projects, content: ProjectSummaryView.init)
-                            }
-                            .padding([.horizontal, .top])
-                            .fixedSize(horizontal: false, vertical: true)
+                        LazyHGrid(rows: projectRows) {
+                            ForEach(viewModel.projects, content: ProjectSummaryView.init)
                         }
+                        .padding([.horizontal, .top])
+                        .fixedSize(horizontal: false, vertical: true)
                     }
 
                     VStack(alignment: .leading) {
-                        ItemListView(title: "Up next", items: viewModel.upNext)
-                        ItemListView(title: "More to explore", items: viewModel.moreToExplore)
+                        ItemListView(title: "Up next", items: $viewModel.upNext)
+                        ItemListView(title: "More to explore", items: $viewModel.moreToExplore)
                     }
                     .padding(.horizontal)
                 }
@@ -57,13 +55,13 @@ struct HomeView: View {
             .background(Color.systemGroupedBackground.ignoresSafeArea())
             .navigationTitle("Home")
             .onContinueUserActivity(CSSearchableItemActionType, perform: loadSpotlightItem)
-            #if DEBUG
+#if DEBUG
             .toolbar {
                 Button("Add Data") {
                     viewModel.addSampleData()
                 }
             }
-            #endif
+#endif
         }
     }
 
