@@ -34,7 +34,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
     init(dataController: DataController) {
         self.dataController = dataController
 
-        let productIds = Set(["me.chenchik.ios.UltimatePortfolio.unlocked"])
+        let productIds = Set(["me.chenchik.ios.UltimatePortfolio.unlock"])
         request = SKProductsRequest(productIdentifiers: productIds)
 
         super.init()

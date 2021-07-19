@@ -32,7 +32,9 @@ struct UltimatePortfolioApp: App {
                     // API so we can port to macOS, where scene phase won't detect
                     // our app losing focus as of macOS 11.1.
                     NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification),
-                    perform: save)
+                    perform: save
+                )
+                .onAppear(perform: dataController.appLaunched)
         }
     }
 
