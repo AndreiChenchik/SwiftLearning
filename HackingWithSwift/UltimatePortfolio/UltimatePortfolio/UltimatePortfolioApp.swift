@@ -19,6 +19,10 @@ struct UltimatePortfolioApp: App {
 
         _dataController = StateObject(wrappedValue: dataController)
         _unlockManager = StateObject(wrappedValue: unlockManager)
+
+#if targetEnvironment(simulator)
+        UserDefaults.standard.set("gumlooter", forKey: "username")
+#endif
     }
 
     var body: some Scene {
