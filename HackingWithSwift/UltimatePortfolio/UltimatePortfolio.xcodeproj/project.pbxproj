@@ -63,6 +63,7 @@
 		389E1CFE26A5F500008526E4 /* DataController-Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E1CFD26A5F500008526E4 /* DataController-Reminders.swift */; };
 		389E1D0026A5F552008526E4 /* DataController-Awards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E1CFF26A5F552008526E4 /* DataController-Awards.swift */; };
 		389E1D0226A5F5A0008526E4 /* DataController-StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389E1D0126A5F5A0008526E4 /* DataController-StoreKit.swift */; };
+		38AC3C8226B1B3E800EE7A74 /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC3C8126B1B3E800EE7A74 /* ChatMessage.swift */; };
 		38D5C17A26A6081C008353CD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 387F06FE26A07D2200560A9C /* Localizable.strings */; };
 		38D5C17B26A609BF008353CD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38210D3D269E0EE7005BE6A2 /* Colors.xcassets */; };
 		38D5C17C26A609CE008353CD /* Project-CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7A319269DF25E00E39BE1 /* Project-CoreDataHelpers.swift */; };
@@ -183,6 +184,7 @@
 		389E1CFD26A5F500008526E4 /* DataController-Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Reminders.swift"; sourceTree = "<group>"; };
 		389E1CFF26A5F552008526E4 /* DataController-Awards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Awards.swift"; sourceTree = "<group>"; };
 		389E1D0126A5F5A0008526E4 /* DataController-StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-StoreKit.swift"; sourceTree = "<group>"; };
+		38AC3C8126B1B3E800EE7A74 /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		38D5C17E26A60FAD008353CD /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		38D5C18026A60FCC008353CD /* SimpleWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleWidget.swift; sourceTree = "<group>"; };
 		38D5C18226A60FED008353CD /* ComplexWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexWidget.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				38956D8C26A62F5200AD50DB /* SharedProject.swift */,
 				38956D9326A6309C00AD50DB /* SharedProjectsView.swift */,
+				38AC3C8126B1B3E800EE7A74 /* ChatMessage.swift */,
 				38956D9526A6348400AD50DB /* SharedItemsView.swift */,
 				38956D8E26A62F9D00AD50DB /* SharedItem.swift */,
 				38956D9026A6301700AD50DB /* LoadStates.swift */,
@@ -714,6 +717,7 @@
 				38210D46269F07E3005BE6A2 /* SelectSomethingView.swift in Sources */,
 				389E1CD526A5B2B7008526E4 /* PurchaseButton.swift in Sources */,
 				387F06F3269F12DF00560A9C /* Award.swift in Sources */,
+				38AC3C8226B1B3E800EE7A74 /* ChatMessage.swift in Sources */,
 				38210D38269DFE45005BE6A2 /* ItemRowView.swift in Sources */,
 				38210D3A269E0753005BE6A2 /* Binding-onChange.swift in Sources */,
 				38F7A2FE269DB94200E39BE1 /* ContentView.swift in Sources */,
