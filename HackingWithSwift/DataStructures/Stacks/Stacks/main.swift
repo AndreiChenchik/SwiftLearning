@@ -8,7 +8,7 @@
 import Foundation
 
 struct Stack<Element> {
-    private var array = [Element]()
+    fileprivate var array = [Element]()
     var count: Int { array.count }
     var isEmpty: Bool { array.isEmpty }
 
@@ -28,6 +28,14 @@ struct Stack<Element> {
 
     func peek() -> Element? {
         array.last
+    }
+
+    mutating func removeAll() {
+        array.removeAll()
+    }
+
+    func contains(_ element: Element) -> Bool where Element: Equatable {
+        array.firstIndex(of: element) != nil
     }
 }
 
@@ -64,11 +72,11 @@ extension Stack: Decodable where Element: Decodable { }
 
 extension Stack: Encodable where Element: Encodable { }
 
-
-
-
-
-
+extension Array {
+    init(from stack: Stack<Element>) {
+        self = stack.array
+    }
+}
 
 
 let stackA = Stack([1, 2, 3])
@@ -93,3 +101,8 @@ print(names.pop() ?? "")
 print(names.pop() ?? "")
 print(names.pop() ?? "")
 print(names.pop() ?? "")
+
+
+let stack = Stack([1, 2, 3])
+let array = Array(from: stack)
+print(array)
