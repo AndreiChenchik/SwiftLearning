@@ -25,6 +25,11 @@ final class Node<Value> {
         self.children = children
     }
 
+    init(_ value: Value, @NodeBuilder builder: () -> [Node]) {
+        self.value = value
+        self.children = builder()
+    }
+
     func add(child: Node) {
         children.append(child)
     }
@@ -62,6 +67,13 @@ extension Node where Value: Equatable {
     }
 }
 
+@resultBuilder
+struct NodeBuilder {
+    static func buildBlock<Value>(_ children: Node<Value>...) -> [Node<Value>] {
+        children
+    }
+}
+
 var andrew = Node("Andrew")
 var john = Node("John")
 andrew.add(child: john)
@@ -91,3 +103,17 @@ print(andrew.count)
 if let paul = root.find("Paul") {
     print(paul.count)
 }
+
+let terry =
+    Node("Terry") {
+        Node("Paul") {
+            Node("Sophie")
+            Node("Lottie")
+        }
+
+        Node("Andrew") {
+            Node("John")
+        }
+    }
+
+print(terry.count)
