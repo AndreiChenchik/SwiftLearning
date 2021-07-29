@@ -90,17 +90,47 @@ print("Took \(end - start) seconds to get to 0")
 
 
 
-struct LinkedListEnum<Element> {
+struct LinkedListEnum<Element>: Sequence {
     var start: LinkedListEnumNode<Element>?
+
+    func makeIterator() -> LinkedListEnumIterator<Element> {
+        LinkedListEnumIterator(current: start)
+    }
 }
 
 indirect enum LinkedListEnumNode<Element> {
     case node(value: Element, next: LinkedListEnumNode<Element>?)
 }
 
-var third = LinkedListEnumNode.node(value: 5, next: nil)
-var second = LinkedListEnumNode.node(value: 5, next: third)
-var first = LinkedListEnumNode.node(value: 5, next: second)
+var third = LinkedListEnumNode.node(value: 3, next: nil)
+var second = LinkedListEnumNode.node(value: 2, next: third)
+var first = LinkedListEnumNode.node(value: 1, next: second)
 
 let enumList = LinkedListEnum(start: first)
 var currentNode = list.start
+
+
+
+struct LinkedListEnumIterator<Element>: IteratorProtocol {
+    var current: LinkedListEnumNode<Element>?
+
+    mutating func next() -> LinkedListEnumNode<Element>? {
+        defer {
+            switch current {
+            case .node(value: _, next: let next):
+                current = next
+            case .none:
+                break
+            }
+        }
+
+        return current
+    }
+}
+
+for item in enumList {
+    switch item {
+    case .node(value: let value, next: _):
+        print(value)
+    }
+}
