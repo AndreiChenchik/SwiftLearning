@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		38FA734126B2FF0100AB5AB9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA734026B2FF0100AB5AB9 /* main.swift */; };
+		38FA734826B317CE00AB5AB9 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA734726B317CE00AB5AB9 /* Queue.swift */; };
+		38FA734A26B317E600AB5AB9 /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA734926B317E600AB5AB9 /* Work.swift */; };
+		38FA734C26B3181A00AB5AB9 /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA734B26B3181A00AB5AB9 /* Deque.swift */; };
+		38FA735026B31D4B00AB5AB9 /* LinkedQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FA734F26B31D4B00AB5AB9 /* LinkedQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		38FA733D26B2FF0100AB5AB9 /* QueuesExample */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = QueuesExample; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FA734026B2FF0100AB5AB9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		38FA734726B317CE00AB5AB9 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		38FA734926B317E600AB5AB9 /* Work.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		38FA734B26B3181A00AB5AB9 /* Deque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deque.swift; sourceTree = "<group>"; };
+		38FA734F26B31D4B00AB5AB9 /* LinkedQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				38FA734026B2FF0100AB5AB9 /* main.swift */,
+				38FA734726B317CE00AB5AB9 /* Queue.swift */,
+				38FA734F26B31D4B00AB5AB9 /* LinkedQueue.swift */,
+				38FA734B26B3181A00AB5AB9 /* Deque.swift */,
+				38FA734926B317E600AB5AB9 /* Work.swift */,
 			);
 			path = QueuesExample;
 			sourceTree = "<group>";
@@ -121,6 +133,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				38FA734126B2FF0100AB5AB9 /* main.swift in Sources */,
+				38FA734826B317CE00AB5AB9 /* Queue.swift in Sources */,
+				38FA735026B31D4B00AB5AB9 /* LinkedQueue.swift in Sources */,
+				38FA734C26B3181A00AB5AB9 /* Deque.swift in Sources */,
+				38FA734A26B317E600AB5AB9 /* Work.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
