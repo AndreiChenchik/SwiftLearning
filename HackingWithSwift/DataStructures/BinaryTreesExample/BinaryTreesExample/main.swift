@@ -33,6 +33,8 @@ extension Node where Value: Comparable {
         } else if newValue > value {
             if right == nil {
                 right = Node(newValue)
+            } else {
+                right?.insert(newValue)
             }
         } else {
             count += 1
