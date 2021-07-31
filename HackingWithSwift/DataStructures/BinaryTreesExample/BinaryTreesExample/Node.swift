@@ -111,17 +111,30 @@ struct NodeIterator<Value>: IteratorProtocol {
 }
 
 extension Array {
-    init<T>(_ node: Node<T>) where Element == Node<T> {
+    enum TraversalOrder {
+        case inOrder, preOrder, postOrder
+    }
+
+    init<T>(_ node: Node<T>, order: TraversalOrder = .inOrder) where Element == Node<T> {
         self = [Node<T>]()
 
+        var leftArray = [Node<T>]()
         if let left = node.left {
-            self += Array(left)
+            leftArray += Array(left)
         }
 
-        self += [node]
-
+        var rightArray = [Node<T>]()
         if let right = node.right {
-            self += Array(right)
+            rightArray += Array(right)
+        }
+
+        switch order {
+        case .inOrder:
+            self = leftArray + [node] + rightArray
+        case .preOrder:
+            self = [node] + leftArray + rightArray
+        case .postOrder:
+            self = leftArray + rightArray + [node]
         }
     }
 }
