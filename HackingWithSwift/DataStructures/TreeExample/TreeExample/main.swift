@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 var andrew = Node("Andrew")
 var john = Node("John")
 andrew.add(child: john)

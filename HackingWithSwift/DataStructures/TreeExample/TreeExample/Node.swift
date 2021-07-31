@@ -10,27 +10,37 @@ import Foundation
 final class Node<Value> {
     var value: Value
     private(set) var children: [Node]
+    weak var parent: Node?
 
     var count: Int {
         1 + children.reduce(0) { $0 + $1.count }
     }
 
-    init(_ value: Value) {
+    init(_ value: Value, parent: Node? = nil) {
         self.value = value
         children = []
     }
 
-    init(_ value: Value, children: [Node]) {
+    init(_ value: Value, children: [Node], parent: Node? = nil) {
         self.value = value
         self.children = children
+
+        for child in self.children {
+            child.parent = self
+        }
     }
 
-    init(_ value: Value, @NodeBuilder builder: () -> [Node]) {
+    init(_ value: Value, parent: Node? = nil, @NodeBuilder builder: () -> [Node]) {
         self.value = value
         self.children = builder()
+
+        for child in self.children {
+            child.parent = self
+        }
     }
 
     func add(child: Node) {
+        child.parent = self
         children.append(child)
     }
 }
