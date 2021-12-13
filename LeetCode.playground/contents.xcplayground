@@ -4,6 +4,7 @@
         <page name='TwoSums'/>
         <page name='MaxConsecutiveOnes'/>
         <page name='FindNumbersWithEvenNumberDigits'/>
+        <page name='Best Time to Buy and Sell Stock'/>
         <page name='Best Time to Buy and Sell Stock II'/>
     </pages>
 </playground>

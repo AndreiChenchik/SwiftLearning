@@ -1,44 +1,21 @@
 //: [Previous](@previous)
+//:
+//: You are given an integer array `prices` where `prices[i]` is the price of a given stock on the `i-th` day.
+//:
+//: On each day, you may decide to buy and/or sell the stock. You can only hold **at most one** share of the stock at any time. However, you can buy it then immediately sell it on the **same day**.
+//:
+//: Find and return the **maximum** profit you can achieve.
+//:
+//: Constraints:
+//:
+//: * 1 <= prices.length <= 3 * 10^4
+//: * 0 <= prices[i] <= 10^4
 
 
-// 4 errors
-// - wrong declaration (not like in leetcode, input need to be anonymous)
-// - {} for guard else block missing
-// - .max instead of .max() in two places
-// - no check for optionality while using max()
-// not accepted - too slow!
-
+// SolutionV1 - Accepted
+// Your runtime beats 100.00 % of swift submissions.
+// https://leetcode.com/submissions/detail/601211367/
 class SolutionV1 {
-    func maxProfit(_ prices: [Int]) -> Int {
-        guard
-            prices.count > 1
-        else {
-            return 0
-        }
-
-        var profits = [Int]()
-
-        for i in 0..<prices.count-1 {
-            guard let maxSellPrice = Array(prices[(i+1)...]).max() else {
-                profits.append(0)
-                continue
-            }
-
-            let possibleProfit = maxSellPrice - prices[i]
-
-            profits.append(possibleProfit > 0 ? possibleProfit : 0)
-        }
-
-        if let maxProfit = profits.max() {
-            return maxProfit
-        } else {
-            return 0
-        }
-    }
-}
-
-// Not accepted - wrong answer
-class SolutionV2 {
     func maxProfit(_ prices: [Int]) -> Int {
         var totalProfit = 0
         var purchasePrice = prices[0]
@@ -64,10 +41,10 @@ class SolutionV2 {
     }
 }
 
-let solution = SolutionV2()
+let solution = SolutionV1()
 
 assert(solution.maxProfit([7,1,5,3,6,4]) == 7)
 assert(solution.maxProfit([1,2,3,4,5]) == 4)
 assert(solution.maxProfit([7,6,4,3,1]) == 0)
-assert(solution.maxProfit([7,1,5,3,6,4]) == 5)
 
+//: [Next](@next)
