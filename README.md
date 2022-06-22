@@ -1,4 +1,4 @@
-# learning-swift
+# SwiftLearning
 Swift development learning path (mostly iOS)
 
 ## Hacking With Swift 
