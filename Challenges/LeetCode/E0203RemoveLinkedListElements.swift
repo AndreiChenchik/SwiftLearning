@@ -10,8 +10,9 @@
  */
 class Solution {
     func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
-        var node = head
+        let result: ListNode? = ListNode(0, head)
         
+        var node = result
         while node != nil {
             if let next = node?.next, next.val == val {
                 node?.next = next.next
@@ -20,11 +21,6 @@ class Solution {
             }
         }
         
-        node = head
-        if let value = node?.val, value == val {
-            node = node?.next
-        }
-        
-        return node
+        return result?.next
     }
 }
