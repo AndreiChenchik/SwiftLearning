@@ -1,0 +1,3 @@
+[submodule "Practicum/MovieQuiz"]
+	path = Practicum/MovieQuiz
+	url = https://github.com/AndreiChenchik/practicum-MovieQuiz-ios.git
