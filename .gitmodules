@@ -1,3 +1,6 @@
 [submodule "Practicum/MovieQuiz"]
 	path = Practicum/MovieQuiz
 	url = https://github.com/AndreiChenchik/practicum-MovieQuiz-ios.git
+[submodule "Practicum/Sprint3/Counter"]
+	path = Practicum/Sprint3/Counter
+	url = https://github.com/AndreiChenchik/practicum-ios-Counter.git
