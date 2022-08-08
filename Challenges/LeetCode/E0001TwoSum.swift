@@ -1,13 +1,15 @@
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        let arraySize = nums.count
+        var cache = [Int: Int]()
         
-        for i in 0..<arraySize {
-            for j in i+1..<arraySize {
-                if nums[i] + nums[j] == target {
-                    return [i, j]
-                }
+        for (index, num) in nums.enumerated() {
+            let secondNum = target - num
+            
+            if let secondIndex = cache[secondNum] {
+                return [index, secondIndex]
             }
+            
+            cache[num] = index
         }
         
         return [-1, -1]
