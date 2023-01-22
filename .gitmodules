@@ -5,5 +5,5 @@
 	path = Practicum/Sprint3/Counter
 	url = https://github.com/AndreiChenchik/practicum-ios-Counter.git
 [submodule "Practicum/practicum-ios-TrackerApp"]
-	path = Practicum/practicum-ios-TrackerApp
+	path = Practicum/TrackerApp
 	url = https://github.com/AndreiChenchik/practicum-ios-TrackerApp.git
