@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = NSPersistentContainer(name: "Model")              // 2
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in // 3
             if let error = error as NSError? {                              // 4
-                // Код для обработки ошибки ошибки
+                assertionFailure(error.localizedDescription)
             }
         })
         return container

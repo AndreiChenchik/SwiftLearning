@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		38083DF82997A89500D47E8A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38083DF62997A89500D47E8A /* Model.xcdatamodeld */; };
+		381592D929A17111006DF7EE /* EmojiMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381592D829A17111006DF7EE /* EmojiMix.swift */; };
+		381592DB29A174B3006DF7EE /* EmojiMixStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381592DA29A174B3006DF7EE /* EmojiMixStore.swift */; };
+		381592DD29A1765D006DF7EE /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381592DC29A1765D006DF7EE /* UIColor+Hex.swift */; };
 		38ACF553297DB42C00CD2DB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ACF552297DB42C00CD2DB2 /* AppDelegate.swift */; };
 		38ACF555297DB42C00CD2DB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ACF554297DB42C00CD2DB2 /* SceneDelegate.swift */; };
 		38ACF557297DB42C00CD2DB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ACF556297DB42C00CD2DB2 /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 
 /* Begin PBXFileReference section */
 		38083DF72997A89500D47E8A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		381592D829A17111006DF7EE /* EmojiMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMix.swift; sourceTree = "<group>"; };
+		381592DA29A174B3006DF7EE /* EmojiMixStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMixStore.swift; sourceTree = "<group>"; };
+		381592DC29A1765D006DF7EE /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		38ACF54F297DB42C00CD2DB2 /* EmojiMixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiMixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38ACF552297DB42C00CD2DB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38ACF554297DB42C00CD2DB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,9 @@
 				38ACF55D297DB42E00CD2DB2 /* LaunchScreen.storyboard */,
 				38ACF560297DB42E00CD2DB2 /* Info.plist */,
 				38083DF62997A89500D47E8A /* Model.xcdatamodeld */,
+				381592D829A17111006DF7EE /* EmojiMix.swift */,
+				381592DA29A174B3006DF7EE /* EmojiMixStore.swift */,
+				381592DC29A1765D006DF7EE /* UIColor+Hex.swift */,
 			);
 			path = EmojiMixer;
 			sourceTree = "<group>";
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381592DD29A1765D006DF7EE /* UIColor+Hex.swift in Sources */,
 				38ACF557297DB42C00CD2DB2 /* ViewController.swift in Sources */,
 				38ACF553297DB42C00CD2DB2 /* AppDelegate.swift in Sources */,
+				381592D929A17111006DF7EE /* EmojiMix.swift in Sources */,
+				381592DB29A174B3006DF7EE /* EmojiMixStore.swift in Sources */,
 				38ACF555297DB42C00CD2DB2 /* SceneDelegate.swift in Sources */,
 				38083DF82997A89500D47E8A /* Model.xcdatamodeld in Sources */,
 			);

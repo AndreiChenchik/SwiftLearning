@@ -8,26 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var emojis: [String] = []
-    private let possibleEmojis = [
-        "🍇", "🍈", "🍉", "🍊", "🍋", "🍌", "🍍", "🥭", "🍎", "🍏", "🍐", "🍒", "🍓",
-        "🫐", "🥝", "🍅", "🫒", "🥥", "🥑", "🍆", "🥔", "🥕", "🌽", "🌶️", "🫑", "🥒",
-        "🥬", "🥦", "🧄", "🧅", "🍄"
-    ]
+    private var visibleEmojiMixes: [EmojiMix] = []
 
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
-
-    private let undoButton: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("Undo", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-
-        return button
-    }()
 
     private let addButton: UIButton = {
         let button = UIButton()
@@ -58,6 +44,9 @@ class EmojiCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        layer.cornerRadius = 12
+        clipsToBounds = true
+
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
@@ -73,6 +62,7 @@ private extension ViewController {
         collectionView.register(EmojiCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 
     func configureViews() {
@@ -85,7 +75,6 @@ private extension ViewController {
         hStack.alignment = .center
         hStack.translatesAutoresizingMaskIntoConstraints = false
 
-        hStack.addArrangedSubview(undoButton)
         hStack.addArrangedSubview(UIView())
         hStack.addArrangedSubview(addButton)
 
@@ -107,30 +96,16 @@ private extension ViewController {
 
     func configureActions() {
         addButton.addTarget(self, action: #selector(add), for: .touchUpInside)
-        undoButton.addTarget(self, action: #selector(undo), for: .touchUpInside)
     }
 }
 
 extension ViewController {
     @objc func add() {
-        guard let emoji = possibleEmojis.randomElement() else { return }
-
-        let count = emojis.count
-        emojis.append(emoji)
+        let count = visibleEmojiMixes.count
+        visibleEmojiMixes.append(.newMix)
 
         collectionView.performBatchUpdates {
             collectionView.insertItems(at: [.init(row: count, section: 0)])
-        }
-    }
-
-    @objc func undo() {
-        guard emojis.count > 0 else { return }
-
-        emojis.removeLast()
-        let count = emojis.count
-
-        collectionView.performBatchUpdates {
-            collectionView.deleteItems(at: [.init(row: count, section: 0)])
         }
     }
 }
@@ -143,7 +118,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return CGSize(width: collectionView.bounds.width / 2, height: 50)
+        let width = (collectionView.bounds.width - 30) / 2
+        return CGSize(width: width, height: width)
     }
 
     func collectionView(
@@ -151,7 +127,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAt section: Int
     ) -> CGFloat {
-        return 0
+        return 10
     }
 }
 
@@ -160,7 +136,7 @@ extension ViewController: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        emojis.count
+        visibleEmojiMixes.count
     }
 
     func collectionView(
@@ -172,7 +148,8 @@ extension ViewController: UICollectionViewDataSource {
             for: indexPath
         ) as? EmojiCell else { return .init() }
 
-        cell.titleLabel.text = emojis[indexPath.row]
+        cell.titleLabel.text = visibleEmojiMixes[indexPath.row].emojies
+        cell.backgroundColor = visibleEmojiMixes[indexPath.row].backgroundColor
 
         return cell
     }
