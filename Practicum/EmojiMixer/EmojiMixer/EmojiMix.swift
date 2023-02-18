@@ -22,7 +22,7 @@ extension EmojiMix {
         let emojies = allEmojies[first] + allEmojies[second] + allEmojies[third]
 
         let hue = CGFloat(first + second + third) / (3 * CGFloat(allEmojies.count))
-        print(hue)
+
         return .init(emojies: emojies, backgroundColor: .init(hue: hue,
                                                               saturation: 0.2,
                                                               brightness: 0.95,
