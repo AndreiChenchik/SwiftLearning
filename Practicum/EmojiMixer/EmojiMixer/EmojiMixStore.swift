@@ -26,4 +26,21 @@ final class EmojiMixStore {
 
         try context.save()
     }
+
+    func fetchEmojiMixes() throws -> [EmojiMix] {
+        let request = EmojiMixCoreData.fetchRequest()
+        request.returnsObjectsAsFaults = false
+
+        let emojis = try context.fetch(request)
+
+        return emojis.compactMap { coreDataModel in
+            guard let emojies = coreDataModel.emojies,
+                  let hex = coreDataModel.colorHex,
+                  let uiColor = UIColor(hex: hex) else {
+                return nil
+            }
+
+            return.init(emojies: emojies, backgroundColor: uiColor)
+        }
+    }
 }

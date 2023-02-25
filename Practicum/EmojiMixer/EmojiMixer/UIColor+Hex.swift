@@ -6,8 +6,12 @@ extension UIColor {
 
         if hex.hasPrefix("#") {
             let start = hex.index(hex.startIndex, offsetBy: 1)
-            let hexColor = String(hex[start...])
+            var hexColor = String(hex[start...])
 
+            if hexColor.count == 6 {
+                hexColor.append("FF")
+            }
+            
             if hexColor.count == 8 {
                 let scanner = Scanner(string: hexColor)
                 var hexNumber: UInt64 = 0

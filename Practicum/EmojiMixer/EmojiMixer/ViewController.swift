@@ -9,17 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
     private var visibleEmojiMixes: [EmojiMix] = []
+    private let emojiStore = EmojiMixStore()
 
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
 
-    private let addButton: UIButton = {
+    private lazy var addButton: UIButton = {
         let button = UIButton()
 
         button.setTitle("+", for: .normal)
         button.setTitleColor(.blue, for: .normal)
+
+        button.addTarget(self, action: #selector(add), for: .touchUpInside)
 
         return button
     }()
@@ -28,9 +31,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
+        guard let emojis = try? emojiStore.fetchEmojiMixes() else {
+            assertionFailure("CoreData is not Ready")
+            return
+        }
+
+        visibleEmojiMixes = emojis
+
         configureCollection()
         configureViews()
-        configureActions()
     }
 }
 
@@ -93,20 +102,18 @@ private extension ViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-
-    func configureActions() {
-        addButton.addTarget(self, action: #selector(add), for: .touchUpInside)
-    }
 }
 
 extension ViewController {
     @objc func add() {
-        let count = visibleEmojiMixes.count
-        visibleEmojiMixes.append(.newMix)
-
-        collectionView.performBatchUpdates {
-            collectionView.insertItems(at: [.init(row: count, section: 0)])
+        do {
+            try emojiStore.addNewEmojiMix(.newMix)
+            visibleEmojiMixes = try emojiStore.fetchEmojiMixes()
+        } catch {
+            print(error.localizedDescription)
         }
+
+        collectionView.reloadData()
     }
 }
 
