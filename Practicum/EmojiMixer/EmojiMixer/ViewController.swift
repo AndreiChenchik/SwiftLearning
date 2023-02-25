@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     private var visibleEmojiMixes: [EmojiMix] = []
-    private let emojiStore = EmojiMixStore()
+    private lazy var emojiStore = EmojiMixStore(delegate: self)
 
     private let collectionView = UICollectionView(
         frame: .zero,
@@ -108,12 +108,9 @@ extension ViewController {
     @objc func add() {
         do {
             try emojiStore.addNewEmojiMix(.newMix)
-            visibleEmojiMixes = try emojiStore.fetchEmojiMixes()
         } catch {
             print(error.localizedDescription)
         }
-
-        collectionView.reloadData()
     }
 }
 
@@ -159,5 +156,21 @@ extension ViewController: UICollectionViewDataSource {
         cell.backgroundColor = visibleEmojiMixes[indexPath.row].backgroundColor
 
         return cell
+    }
+}
+
+// MARK: - DataProviderDelegate
+extension ViewController: EmojiMixStoreDelegate {
+    func didUpdate(_ update: StoreUpdate) {
+        guard let emojies = try? emojiStore.fetchEmojiMixes() else { return }
+
+        visibleEmojiMixes = emojies
+
+        collectionView.performBatchUpdates {
+            let insertedIndexPaths = update.insertedIndexes.map { IndexPath(item: $0, section: 0) }
+            let deletedIndexPaths = update.deletedIndexes.map { IndexPath(item: $0, section: 0) }
+            collectionView.insertItems(at: insertedIndexPaths)
+            collectionView.deleteItems(at: deletedIndexPaths)
+        }
     }
 }
